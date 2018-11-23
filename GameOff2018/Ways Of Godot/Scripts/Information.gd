@@ -1,0 +1,6 @@
+"""
+Godot will be good engine. 
+But it doesn't ready for 3D in v3.06-v3.1_a2...
+So We 'Waiting for Godot'...
+
+"""

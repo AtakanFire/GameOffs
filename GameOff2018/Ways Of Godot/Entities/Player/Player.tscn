@@ -1,0 +1,497 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Entities/Player/CameraController.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CapsuleShape" id=1]
+
+margin = 0.04
+radius = 1.0
+height = 1.0
+
+[sub_resource type="CapsuleMesh" id=2]
+
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+flip_faces = false
+radius = 1.0
+mid_height = 1.0
+radial_segments = 64
+rings = 8
+
+[sub_resource type="SpatialMaterial" id=3]
+
+render_priority = 0
+flags_transparent = false
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+flags_do_not_receive_shadows = false
+flags_disable_ambient_light = false
+flags_ensure_correct_normals = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_billboard_keep_scale = false
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_mode = 0
+
+[sub_resource type="PlaneMesh" id=4]
+
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+flip_faces = false
+size = Vector2( 2, 2 )
+subdivide_width = 0
+subdivide_depth = 0
+
+[sub_resource type="SpatialMaterial" id=5]
+
+render_priority = 0
+flags_transparent = false
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+flags_do_not_receive_shadows = false
+flags_disable_ambient_light = false
+flags_ensure_correct_normals = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_billboard_keep_scale = false
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 2 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_mode = 0
+
+[sub_resource type="SpatialMaterial" id=6]
+
+render_priority = 0
+flags_transparent = false
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+flags_do_not_receive_shadows = false
+flags_disable_ambient_light = false
+flags_ensure_correct_normals = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_billboard_keep_scale = false
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 0.337255, 0.00392157, 0.00392157, 1 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_mode = 0
+
+[sub_resource type="CylinderMesh" id=7]
+
+material = SubResource( 6 )
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+flip_faces = false
+top_radius = 0.5
+bottom_radius = 0.75
+height = 0.5
+radial_segments = 16
+rings = 2
+
+[sub_resource type="PrismMesh" id=8]
+
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+flip_faces = false
+left_to_right = -1.0
+size = Vector3( 2, 2, 2 )
+subdivide_width = 0
+subdivide_height = 0
+subdivide_depth = 0
+
+[sub_resource type="SpatialMaterial" id=9]
+
+render_priority = 0
+flags_transparent = false
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+flags_do_not_receive_shadows = false
+flags_disable_ambient_light = false
+flags_ensure_correct_normals = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_billboard_keep_scale = false
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 0.576471, 0.0431373, 0.0431373, 1 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_mode = 0
+
+[sub_resource type="ParticlesMaterial" id=10]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = false
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, 1, 0 )
+initial_velocity = 0.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+
+[sub_resource type="SpatialMaterial" id=11]
+
+render_priority = 0
+flags_transparent = false
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+flags_do_not_receive_shadows = false
+flags_disable_ambient_light = false
+flags_ensure_correct_normals = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_billboard_keep_scale = false
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 0, 0, 0, 1 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_mode = 0
+
+[sub_resource type="CylinderMesh" id=12]
+
+material = SubResource( 11 )
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+flip_faces = false
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.0
+radial_segments = 4
+rings = 1
+
+[node name="Player" type="KinematicBody"]
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+move_lock_x = false
+move_lock_y = false
+move_lock_z = false
+collision/safe_margin = 0.001
+script = ExtResource( 1 )
+blinkCooldowner = 1
+learnedSkills = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, -2.84217e-014, -1.12515e-010, -1.12515e-010, -0.000345306, -1, -2.84217e-014, 1, -0.000345306, 0, 0, 0 )
+shape = SubResource( 1 )
+disabled = false
+
+[node name="Capsule" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, -2.84217e-014, -1.12515e-010, -1.12515e-010, -0.000345306, -1, -2.84217e-014, 1, -0.000345306, 0, 0, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = SubResource( 3 )
+
+[node name="GodotFace" type="MeshInstance" parent="Capsule"]
+transform = Transform( 0.5, -8.74228e-008, -4.37114e-008, -4.37114e-008, -1, 0, -4.37114e-008, 0, -0.5, 2.91464e-018, -1, -0.5 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 4 )
+skeleton = NodePath("..")
+material/0 = SubResource( 5 )
+
+[node name="Cap" type="MeshInstance" parent="Capsule"]
+editor/display_folded = true
+transform = Transform( 1, -1.12515e-010, -1.08571e-014, -3.75273e-015, -0.000345306, 1, -1.12508e-010, -1, -0.000345306, -1.7127e-010, -0.000525592, -1.52211 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 7 )
+skeleton = NodePath("..")
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="Capsule/Cap"]
+transform = Transform( 1, 0, 0, 2.10195e-044, 1, 0, 0, 0, 1, 0, 0.221314, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = null
+skeleton = NodePath("..")
+
+[node name="MeshInstance" type="MeshInstance" parent="Capsule/Cap/MeshInstance"]
+transform = Transform( -7.81206e-009, 4.62275e-009, -0.6, 0.144426, 0.138352, -7.33047e-009, 0.233446, -0.243695, -4.42536e-008, -1.91222e-016, -0.231804, -0.451918 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 8 )
+skeleton = NodePath("..")
+material/0 = SubResource( 9 )
+
+[node name="Particles" type="Particles" parent="Capsule/Cap"]
+transform = Transform( 1, 2.8039e-016, -1.05043e-016, -2.62838e-015, 0.753849, -0.657048, -6.33451e-015, 0.657048, 0.753849, 0, 0, 1.16415e-010 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+emitting = true
+amount = 1
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 1.0
+fixed_fps = 0
+fract_delta = true
+visibility_aabb = AABB( -4, -4, -4.47412, 8, 8, 8 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 10 )
+draw_passes = 1
+draw_pass_1 = SubResource( 12 )
+
+[node name="CameraController" parent="." instance=ExtResource( 3 )]
+
