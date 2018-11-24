@@ -3,32 +3,30 @@
 [ext_resource path="res://Entities/Environment/Base/Floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Environment/Base/Wall.tscn" type="PackedScene" id=2]
 
-
-
-[node name="Level2" type="Spatial"]
+[node name="TurnLeft" type="Spatial"]
 
 [node name="Floors" type="Spatial" parent="."]
 
 [node name="Floor" parent="Floors" instance=ExtResource( 1 )]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 5, -10, 0, 5 )
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0 )
 
 [node name="Floor2" parent="Floors" instance=ExtResource( 1 )]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 10, -30, 0, 0 )
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, -10 )
+
+[node name="Floor3" parent="Floors" instance=ExtResource( 1 )]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, -10, 0, -10 )
 
 [node name="Walls" type="Spatial" parent="."]
 
 [node name="Wall" parent="Walls" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-007, 0, 1, 0, 3, 0, -10, 0, -4.37114e-008, 5, 3, 10 )
+transform = Transform( -4.37114e-07, 0, 1, 0, 3, 0, -10, 0, -4.37114e-08, 5, 3, -5 )
 
 [node name="Wall2" parent="Walls" instance=ExtResource( 2 )]
-transform = Transform( 15, 0, 0, 0, 3, 0, 0, 0, 1, -10, 3, 0 )
+transform = Transform( 10, 0, 0, 0, 3, 0, 0, 0, 1, -5, 3, -15 )
 
 [node name="Wall3" parent="Walls" instance=ExtResource( 2 )]
-transform = Transform( 15, 0, 0, 0, 3, 0, 0, 0, 1, -20, 3, 10 )
+transform = Transform( 5, 0, 0, 0, 3, 0, 0, 0, 1, -10, 3, -5 )
 
 [node name="Wall4" parent="Walls" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-007, 0, 1, 0, 3, 0, -10, 0, -4.37114e-008, -35, 3, 0 )
-
-[node name="Wall5" parent="Walls" instance=ExtResource( 2 )]
-transform = Transform( -2.18557e-007, 0, 1, 0, 3, 0, -5, 0, -4.37114e-008, -25, 3, -5 )
+transform = Transform( -2.18557e-07, 0, 1, 0, 3, 0, -5, 0, -4.37114e-08, -5, 3, 0 )
 

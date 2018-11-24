@@ -38,7 +38,7 @@ func _ready():
 
 func _unhandled_input(event):
 	
-	if event is InputEventMouseMotion :
+	if event is InputEventMouseMotion:
 		Rotation = event.relative
 	
 	if event is InputEventMouseButton:
@@ -49,27 +49,21 @@ func _unhandled_input(event):
 				ZoomFactor += 0.05
 		ZoomFactor = clamp(ZoomFactor, MaxZoom, MinZoom)
 	
-	if Input.is_action_just_pressed("Forward"):
+	Direction.z = 0
+	Direction.x = 0
+	
+	if Input.is_action_pressed("Forward"):
 		Direction.z -= 1
-	if Input.is_action_just_pressed("Back"):
+	if Input.is_action_pressed("Back"):
 		Direction.z += 1
-	if Input.is_action_just_pressed("Right"):
+	if Input.is_action_pressed("WalkRight"): # Side Walk based Character Controlling
 		Direction.x += 1
-	if Input.is_action_just_pressed("Left"):
+	if Input.is_action_pressed("WalkLeft"): # Side Walk based Character Controlling
 		Direction.x -= 1
 	if Input.is_action_just_pressed("Jump"):
 		if not IsAirborne:
-			CurrentVerticalSpeed = Vector3(0,MaxJump,0)
+			CurrentVerticalSpeed = Vector3(0, MaxJump, 0)
 			IsAirborne = true
-	
-	if Input.is_action_just_released("Forward"):
-		Direction.z += 1
-	if Input.is_action_just_released("Back"):
-		Direction.z -= 1
-	if Input.is_action_just_released("Right"):
-		Direction.x -= 1
-	if Input.is_action_just_released("Left"):
-		Direction.x += 1
 		
 	Direction.z = clamp(Direction.z, -1,1)
 	Direction.x = clamp(Direction.x, -1,1)
@@ -84,6 +78,10 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("LeftMouseButton"):
 		CameraPivot.rotate_y(deg2rad(-Rotation.x)*delta*MouseSensitivity)
 		CameraPivot.rotation_degrees.y = clamp(CameraPivot.rotation_degrees.y, -180, 180)
+	elif Input.is_action_pressed("Right"): # Rotate Based Character Controlling
+		Player.rotate_y(deg2rad(-5)* delta * MouseSensitivity)
+	elif Input.is_action_pressed("Left"): # Rotate Based Character Controlling
+		Player.rotate_y(deg2rad(5)* delta * MouseSensitivity)
 	else:
 			CameraPivot.rotation = CameraPivotBaseRotation
 			

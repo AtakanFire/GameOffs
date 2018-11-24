@@ -11,5 +11,5 @@ func _ready():
 
 
 func _on_Player_skillLearned(learnedSkills):
-	get_child(learnedSkills-1).queue_free()
+	get_child(0).queue_free()
 	pass 

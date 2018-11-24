@@ -31,5 +31,5 @@ current = true
 fov = 70.0
 size = 1.0
 near = 0.05
-far = 150.0
+far = 250.0
 
