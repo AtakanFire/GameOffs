@@ -56,9 +56,11 @@ func _unhandled_input(event):
 		Direction.z -= 1
 	if Input.is_action_pressed("Back"):
 		Direction.z += 1
-	if Input.is_action_pressed("WalkRight"): # Side Walk based Character Controlling
+	# Side Walk based Character Controlling
+	if Input.is_action_pressed("WalkRight") or ((Input.is_action_pressed("RightMouseButton") or Input.is_action_pressed("LeftMouseButton")) and Input.is_action_pressed("Right")):
 		Direction.x += 1
-	if Input.is_action_pressed("WalkLeft"): # Side Walk based Character Controlling
+		# Side Walk based Character Controlling
+	if Input.is_action_pressed("WalkLeft") or ((Input.is_action_pressed("RightMouseButton") or Input.is_action_pressed("LeftMouseButton")) and Input.is_action_pressed("Left")): 
 		Direction.x -= 1
 	if Input.is_action_just_pressed("Jump"):
 		if not IsAirborne:

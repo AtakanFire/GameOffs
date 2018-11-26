@@ -1,0 +1,138 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Resources/Materials/Block.tres" type="Material" id=1]
+
+[sub_resource type="CylinderMesh" id=2]
+
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+flip_faces = false
+top_radius = 0.2
+bottom_radius = 0.5
+height = 2.0
+radial_segments = 64
+rings = 4
+
+[sub_resource type="CylinderShape" id=3]
+
+margin = 0.04
+radius = 1.0
+height = 2.0
+
+[node name="Tree" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 4, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 1 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, -0.75, 0 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
+transform = Transform( 0.5, 0, 0, 0, 4, 0, 0, 0, 0.5, 0, 3, 0 )
+shape = SubResource( 3 )
+disabled = false
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 0.0845237, 1.81262, 0, -0.181262, 0.845237, 0, 0, 0, 0.2, 2, 6, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 1 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance2"]
+transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, -0.75, 0 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance2/StaticBody"]
+transform = Transform( 0.5, 0, 0, 0, 4, 0, 0, 0, 0.5, 0, 3, 0 )
+shape = SubResource( 3 )
+disabled = false
+
+[node name="MeshInstance3" type="MeshInstance" parent="."]
+transform = Transform( -3.69465e-09, -7.92319e-08, 0.2, -0.181262, 0.845237, 0, -0.0845237, -1.81262, -8.74228e-09, -5.96046e-08, 4, -2 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 1 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance3"]
+transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, -0.75, 0 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance3/StaticBody"]
+transform = Transform( 0.5, 0, 0, 0, 4, 0, 0, 0, 0.5, 0, 3, 0 )
+shape = SubResource( 3 )
+disabled = false
+
+[node name="MeshInstance4" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-09, 7.57103e-08, 0.2, 0.173205, 1, 0, -0.1, 1.73205, -8.74228e-09, -5.96046e-08, 5, 2 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 1 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance4"]
+transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, -0.75, 0 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance4/StaticBody"]
+transform = Transform( 0.5, 0, 0, 0, 4, 0, 0, 0, 0.5, 0, 3, 0 )
+shape = SubResource( 3 )
+disabled = false
+

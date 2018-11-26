@@ -112,3 +112,18 @@ mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
 
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( -1, -7.57103e-08, -4.37114e-08, 0, 0.5, -0.866025, 8.74228e-08, -0.866025, -0.5, 0, 0, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 3 )
+skeleton = NodePath("..")
+material/0 = null
+

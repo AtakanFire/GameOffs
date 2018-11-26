@@ -208,7 +208,7 @@ rings = 2
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 flip_faces = false
-left_to_right = -1.0
+left_to_right = -0.8
 size = Vector3( 2, 2, 2 )
 subdivide_width = 0
 subdivide_height = 0
@@ -383,15 +383,16 @@ collision/safe_margin = 0.001
 script = ExtResource( 1 )
 blinkCooldowner = 1
 fireCooldowner = 1
+nearTreeTimeCount = 10
 learnedSkills = 0
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, -2.84217e-014, -1.12515e-010, -1.12515e-010, -0.000345306, -1, -2.84217e-014, 1, -0.000345306, 0, 0, 0 )
+transform = Transform( 1, -2.84217e-14, -1.12515e-10, -1.12515e-10, -0.000345306, -1, -2.84217e-14, 1, -0.000345306, 0, 0, 0 )
 shape = SubResource( 1 )
 disabled = false
 
 [node name="Capsule" type="MeshInstance" parent="."]
-transform = Transform( 1, -2.84217e-014, -1.12515e-010, -1.12515e-010, -0.000345306, -1, -2.84217e-014, 1, -0.000345306, 0, 0, 0 )
+transform = Transform( 1, -2.84217e-14, -1.12515e-10, -1.12515e-10, -0.000345306, -1, -2.84217e-14, 1, -0.000345306, 0, 0, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -406,7 +407,7 @@ skeleton = NodePath("..")
 material/0 = SubResource( 3 )
 
 [node name="GodotFace" type="MeshInstance" parent="Capsule"]
-transform = Transform( 0.5, -8.74228e-008, -4.37114e-008, -4.37114e-008, -1, 0, -4.37114e-008, 0, -0.5, 2.91464e-018, -1, -0.5 )
+transform = Transform( 0.5, -8.74228e-08, -4.37114e-08, -4.37114e-08, -1, 0, -4.37114e-08, 0, -0.5, 2.91464e-18, -1, -0.5 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -421,8 +422,7 @@ skeleton = NodePath("..")
 material/0 = SubResource( 5 )
 
 [node name="Cap" type="MeshInstance" parent="Capsule"]
-editor/display_folded = true
-transform = Transform( 1, -1.12515e-010, -1.08571e-014, -3.75273e-015, -0.000345306, 1, -1.12508e-010, -1, -0.000345306, -1.7127e-010, -0.000525592, -1.52211 )
+transform = Transform( 1, -1.12515e-10, -1.08571e-14, -3.75273e-15, -0.000345306, 1, -1.12508e-10, -1, -0.000345306, -1.7127e-10, -0.000525592, -1.52211 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -437,7 +437,7 @@ skeleton = NodePath("..")
 material/0 = null
 
 [node name="MeshInstance" type="MeshInstance" parent="Capsule/Cap"]
-transform = Transform( 1, 0, 0, 2.10195e-044, 1, 0, 0, 0, 1, 0, 0.221314, 0 )
+transform = Transform( 1, 0, 0, 2.10195e-44, 1, 0, 0, 0, 1, 0, 0.221314, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -451,7 +451,7 @@ mesh = null
 skeleton = NodePath("..")
 
 [node name="MeshInstance" type="MeshInstance" parent="Capsule/Cap/MeshInstance"]
-transform = Transform( -7.81206e-009, 4.62275e-009, -0.6, 0.144426, 0.138352, -7.33047e-009, 0.233446, -0.243695, -4.42536e-008, -1.91222e-016, -0.231804, -0.451918 )
+transform = Transform( -7.81206e-09, 4.62275e-09, -0.6, 0.144426, 0.138352, -7.33047e-09, 0.233446, -0.243695, -4.42536e-08, -1.91222e-16, -0.231804, -0.451918 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -466,7 +466,7 @@ skeleton = NodePath("..")
 material/0 = SubResource( 9 )
 
 [node name="Particles" type="Particles" parent="Capsule/Cap"]
-transform = Transform( 1, 2.8039e-016, -1.05043e-016, -2.62838e-015, 0.753849, -0.657048, -6.33451e-015, 0.657048, 0.753849, 0, 0, 1.16415e-010 )
+transform = Transform( 1, 2.8039e-16, -1.05043e-16, -2.62838e-15, 0.753849, -0.657048, -6.33451e-15, 0.657048, 0.753849, 0, 0, 1.16415e-10 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -490,11 +490,14 @@ visibility_aabb = AABB( -4, -4, -4.47412, 8, 8, 8 )
 local_coords = true
 draw_order = 0
 process_material = SubResource( 10 )
-draw_passes = 1
+draw_passes = 4
 draw_pass_1 = SubResource( 12 )
+draw_pass_2 = null
+draw_pass_3 = null
+draw_pass_4 = null
 
 [node name="CameraController" parent="." instance=ExtResource( 3 )]
 
 [node name="AttackHandle" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, -3.38813e-021, 0, 1, 2.39243, 1.13539, -2.57074 )
+transform = Transform( 1, 0, 0, 0, 1, 0, -3.38813e-21, 0, 1, 2.39243, 1.13539, -2.57074 )
 

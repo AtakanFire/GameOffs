@@ -6,7 +6,13 @@ Game Off projects repositories will be here...
 [Tools](#Tools:)
 
 ### License
-**License:** [MIT](./LICENSE)
+**Third Party Licenses:** Each project ***Third Party Resource*** has its own license. So look at,
+  * **Third Party Licenses:** "*ProjectName*" > "Resources" > "ThirdParty.md", the link can also be accessed from below.
+
+**Art License:** Each project resource under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/).
+ * **Arts Folder:** "*ProjectName*" > "Resources" > "Arts"
+
+**License:** GameOff Projects and this repositories under [MIT](./LICENSE).
 
 ### GameOffs:
 * [2018](#Game-Off-2018)
@@ -35,7 +41,7 @@ Game Off projects repositories will be here...
 * **Images**:
 * **Tools**: *Blender (v2.8_a2)*, *Godot (v3.1_a2)*
 * **Comment**: Godot will be good engine, but it doesn't ready for 3D in v3.06-v3.1_alpha2. So We 'Waiting for Godot'...  
- *  **Sincerity**: And 'Why not camelCase(Or PascalCase)?'🤔 Thanks for camelCase AutoComplete...
-* **ThirdParty**: [ThirdParty](https://github.com)
+ * **Sincerity**: And 'Why not camelCase(Or PascalCase)?'🤔 Thanks for camelCase AutoComplete...
+* **ThirdParty**: [ThirdParty](./GameOff2018/Resources/ThirdParty.md)
 
 ***
