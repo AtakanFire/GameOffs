@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Levels/Level0.tscn" type="PackedScene" id=2]
@@ -25,16 +25,17 @@
 [ext_resource path="res://Entities/Environment/RoadSigns/LeftSign.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Entities/Environment/RoadSigns/UpSign.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Entities/Environment/RoadSigns/RightSign.tscn" type="PackedScene" id=25]
-[ext_resource path="res://Entities/Environment/Base/Interactions/Block.tscn" type="PackedScene" id=26]
-[ext_resource path="res://Entities/Environment/Base/GodotHead.tscn" type="PackedScene" id=27]
-[ext_resource path="res://Entities/Environment/Base/Interactions/Tree.tscn" type="PackedScene" id=28]
-[ext_resource path="res://Resources/Materials/Green.tres" type="Material" id=29]
-[ext_resource path="res://Scripts/Interactions/SpeedUps.gd" type="Script" id=30]
-[ext_resource path="res://Entities/Environment/Base/Interactions/SpeedUp.tscn" type="PackedScene" id=31]
-[ext_resource path="res://Scripts/HUD/HUD.gd" type="Script" id=32]
-[ext_resource path="res://Resources/Particles/GradientColor2D.tres" type="Texture" id=33]
-[ext_resource path="res://Resources/Particles/ScaleCurve2D.tres" type="Texture" id=34]
-[ext_resource path="res://icon.png" type="Texture" id=35]
+[ext_resource path="res://Entities/Environment/RoadSigns/Stairs.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Entities/Environment/Base/Interactions/Block.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Entities/Environment/Base/GodotHead.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Entities/Environment/Base/Interactions/Tree.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Resources/Materials/Green.tres" type="Material" id=30]
+[ext_resource path="res://Scripts/Interactions/SpeedUps.gd" type="Script" id=31]
+[ext_resource path="res://Entities/Environment/Base/Interactions/SpeedUp.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Scripts/HUD/HUD.gd" type="Script" id=33]
+[ext_resource path="res://Resources/Particles/GradientColor2D.tres" type="Texture" id=34]
+[ext_resource path="res://Resources/Particles/ScaleCurve2D.tres" type="Texture" id=35]
+[ext_resource path="res://icon.png" type="Texture" id=36]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -137,8 +138,8 @@ angle = 0.0
 angle_random = 0.0
 scale = 10.0
 scale_random = 0.2
-scale_curve = ExtResource( 34 )
-color_ramp = ExtResource( 33 )
+scale_curve = ExtResource( 35 )
+color_ramp = ExtResource( 34 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -176,8 +177,8 @@ angle = 0.0
 angle_random = 0.0
 scale = 10.0
 scale_random = 0.2
-scale_curve = ExtResource( 34 )
-color_ramp = ExtResource( 33 )
+scale_curve = ExtResource( 35 )
+color_ramp = ExtResource( 34 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -630,50 +631,56 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -262, 7, -409 )
 [node name="UpSign5" parent="Signs" instance=ExtResource( 24 )]
 transform = Transform( -8.74228e-08, 2, 0, -2, -8.74228e-08, 0, 0, 0, 2, -312, 12, -409 )
 
+[node name="Stairs" parent="Signs" instance=ExtResource( 26 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -27, 4, -5 )
+
+[node name="Stairs2" parent="Signs" instance=ExtResource( 26 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -36, -15, -5.6 )
+
 [node name="Blocks" type="Spatial" parent="."]
 editor/display_folded = true
 
-[node name="Block" parent="Blocks" instance=ExtResource( 26 )]
+[node name="Block" parent="Blocks" instance=ExtResource( 27 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2.3, -301, 21, -408.524 )
 collision_layer = 3
 collision_mask = 3
 
-[node name="Block2" parent="Blocks" instance=ExtResource( 26 )]
+[node name="Block2" parent="Blocks" instance=ExtResource( 27 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2.4, -203, 20, -289 )
 collision_layer = 3
 collision_mask = 3
 
-[node name="Block4" parent="Blocks" instance=ExtResource( 26 )]
+[node name="Block4" parent="Blocks" instance=ExtResource( 27 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2.4, -203, 20, -139 )
 collision_layer = 3
 collision_mask = 3
 
-[node name="Block5" parent="Blocks" instance=ExtResource( 26 )]
+[node name="Block5" parent="Blocks" instance=ExtResource( 27 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2.4, -157, 20, -139 )
 collision_layer = 3
 collision_mask = 3
 
-[node name="Block6" parent="Blocks" instance=ExtResource( 26 )]
+[node name="Block6" parent="Blocks" instance=ExtResource( 27 )]
 transform = Transform( -8.74228e-08, 0, 2.4, 0, 2, 0, -2, 0, -1.04907e-07, -141, 20, -156 )
 collision_layer = 3
 collision_mask = 3
 
-[node name="Block7" parent="Blocks" instance=ExtResource( 26 )]
+[node name="Block7" parent="Blocks" instance=ExtResource( 27 )]
 transform = Transform( -8.74228e-08, 0, 2.4, 0, 2, 0, -2, 0, -1.04907e-07, 69, 20, -156 )
 collision_layer = 3
 collision_mask = 3
 
-[node name="Block8" parent="Blocks" instance=ExtResource( 26 )]
+[node name="Block8" parent="Blocks" instance=ExtResource( 27 )]
 transform = Transform( -8.74228e-08, 0, 2.4, 0, 2, 0, -2, 0, -1.04907e-07, 69, 20, -212 )
 collision_layer = 3
 collision_mask = 3
 
-[node name="Block9" parent="Blocks" instance=ExtResource( 26 )]
+[node name="Block9" parent="Blocks" instance=ExtResource( 27 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2.4, 91, 20, -229 )
 collision_layer = 3
 collision_mask = 3
 
-[node name="Block10" parent="Blocks" instance=ExtResource( 26 )]
+[node name="Block10" parent="Blocks" instance=ExtResource( 27 )]
 transform = Transform( -8.74228e-08, 0, 2.4, 0, 2, 0, -2, 0, -1.04907e-07, 174, 20, -125 )
 collision_layer = 3
 collision_mask = 3
@@ -681,16 +688,16 @@ collision_mask = 3
 [node name="GodotHead" type="Spatial" parent="."]
 editor/display_folded = true
 
-[node name="GodotHead" parent="GodotHead" instance=ExtResource( 27 )]
+[node name="GodotHead" parent="GodotHead" instance=ExtResource( 28 )]
 transform = Transform( 4.69846, 0, 1.7101, 0, 5, 0, -1.7101, 0, 4.69846, 6, 0, -20 )
 
-[node name="GodotHead2" parent="GodotHead" instance=ExtResource( 27 )]
+[node name="GodotHead2" parent="GodotHead" instance=ExtResource( 28 )]
 transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -14, 4, 0 )
 
-[node name="GodotHead3" parent="GodotHead" instance=ExtResource( 27 )]
+[node name="GodotHead3" parent="GodotHead" instance=ExtResource( 28 )]
 transform = Transform( 0.819152, 0, 0.573577, 0, 1, 0, -0.573577, 0, 0.819152, -4, 4, -8 )
 
-[node name="Tree" parent="." instance=ExtResource( 28 )]
+[node name="Tree" parent="." instance=ExtResource( 29 )]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 20 )
 
@@ -715,7 +722,7 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 2 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 29 )
+material/0 = ExtResource( 30 )
 
 [node name="StaticBody" type="StaticBody" parent="Tree/Leafs/Leaf/MeshInstance"]
 editor/display_folded = true
@@ -747,7 +754,7 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 2 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 29 )
+material/0 = ExtResource( 30 )
 
 [node name="StaticBody" type="StaticBody" parent="Tree/Leafs/Leaf2/MeshInstance"]
 input_ray_pickable = true
@@ -778,7 +785,7 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 2 )
 skeleton = NodePath("..")
-material/0 = ExtResource( 29 )
+material/0 = ExtResource( 30 )
 
 [node name="StaticBody" type="StaticBody" parent="Tree/Leafs/Leaf3/MeshInstance"]
 input_ray_pickable = true
@@ -821,22 +828,22 @@ disabled = false
 
 [node name="SpeedUps" type="Spatial" parent="."]
 editor/display_folded = true
-script = ExtResource( 30 )
+script = ExtResource( 31 )
 speedTimerCount = 8
 
-[node name="SpeedUp" parent="SpeedUps" instance=ExtResource( 31 )]
+[node name="SpeedUp" parent="SpeedUps" instance=ExtResource( 32 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -32, -18, -108 )
 
-[node name="SpeedUp2" parent="SpeedUps" instance=ExtResource( 31 )]
+[node name="SpeedUp2" parent="SpeedUps" instance=ExtResource( 32 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -180, -17, -250 )
 
-[node name="SpeedUp3" parent="SpeedUps" instance=ExtResource( 31 )]
+[node name="SpeedUp3" parent="SpeedUps" instance=ExtResource( 32 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 46, -15, -488 )
 
-[node name="SpeedUp4" parent="SpeedUps" instance=ExtResource( 31 )]
+[node name="SpeedUp4" parent="SpeedUps" instance=ExtResource( 32 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -186, 15, -319 )
 
-[node name="SpeedUp5" parent="SpeedUps" instance=ExtResource( 31 )]
+[node name="SpeedUp5" parent="SpeedUps" instance=ExtResource( 32 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 175, 44, -34 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SpeedUps"]
@@ -861,10 +868,9 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 stretch = false
 stretch_shrink = 1
-script = ExtResource( 32 )
+script = ExtResource( 33 )
 
 [node name="GameOver" type="Container" parent="HUD"]
-editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -940,7 +946,6 @@ lines_skipped = 0
 max_lines_visible = -1
 
 [node name="Particles" type="Control" parent="HUD/GameOver/Container/Panel2/Panel"]
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -986,7 +991,6 @@ h_frames = 1
 v_frames = 1
 
 [node name="LeftParticle" type="Control" parent="HUD/GameOver/Container/Panel2/Panel/Particles"]
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -998,7 +1002,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="Particles2D2" type="Particles2D" parent="HUD/GameOver/Container/Panel2/Panel/Particles/LeftParticle"]
+[node name="Particles2D" type="Particles2D" parent="HUD/GameOver/Container/Panel2/Panel/Particles/LeftParticle"]
 emitting = true
 amount = 4
 lifetime = 1.0
@@ -1040,7 +1044,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 35 )
+texture = ExtResource( 36 )
 stretch_mode = 0
 
 [node name="Blink" type="Button" parent="HUD/Skills"]
