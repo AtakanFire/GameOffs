@@ -24,10 +24,14 @@ func _process(delta):
 	if speedUpTimer != null: 
 		if speedUpTimer.is_stopped():
 			$"Skills/Speed Up"/Text.text = ""
+			$"Skills/Speed Up/Particles".visible = false
+			$"Skills/Speed Up/Particles/AnimationPlayer".stop()
 		elif speedUpTimer.get_time_left() > 0:
 			$"Skills/Speed Up"/Text.text = str("%.2f" % (speedUpTimer.get_time_left()), "/", "%.2f" % speedUpTimer.get_wait_time())
-	
-	
+			if !$"Skills/Speed Up/Particles".visible:
+				$"Skills/Speed Up/Particles".visible = true
+				$"Skills/Speed Up/Particles/AnimationPlayer".play("SpeedUp")
+			
 	pass
 
 func _on_Player_skillLearned(learnedSkills):
@@ -35,17 +39,22 @@ func _on_Player_skillLearned(learnedSkills):
 		$Skills/Info/Tips.text = "The new chapter(Act) was read.\nBlink learned! \n Key: \"Q\""
 		$Skills/Blink.visible = true
 	elif learnedSkills == 2:
-		$Skills/Info/Tips.text = "The new chapter(Act) was read.\nAttack learned! \n Key: \"E\""
+		$Skills/Info/Tips.text = "The new chapter(Act) was read.\nAttack learned! Attack to Brown Walls. \n Key: \"E\""
 		$Skills/Fire.visible = true
-		
+	
+	$Skills/Info/Particles.visible = true
+	$Skills/Info/Particles/AnimationPlayer.play("Learned")
+	
 	pass 
 
 func _on_Player_blinked(cooldown):
 	blinkCooldown = cooldown
+	$Skills/Info/Particles.visible = false
 	pass 
 
 func _on_Player_fired(cooldown):
 	fireCooldown = cooldown
+	$Skills/Info/Particles.visible = false
 	pass 
 
 func _on_Player_finalTrigger():

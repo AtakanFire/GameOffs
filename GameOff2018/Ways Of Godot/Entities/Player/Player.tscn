@@ -1,8 +1,10 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://Entities/Player/CameraController.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Resources/Materials/Red.tres" type="Material" id=3]
+[ext_resource path="res://Resources/Materials/Black.tres" type="Material" id=4]
+[ext_resource path="res://Entities/Player/CameraController.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -214,62 +216,17 @@ subdivide_width = 0
 subdivide_height = 0
 subdivide_depth = 0
 
-[sub_resource type="SpatialMaterial" id=9]
+[sub_resource type="SphereMesh" id=12]
 
-render_priority = 0
-flags_transparent = false
-flags_unshaded = false
-flags_vertex_lighting = false
-flags_no_depth_test = false
-flags_use_point_size = false
-flags_world_triplanar = false
-flags_fixed_size = false
-flags_albedo_tex_force_srgb = false
-flags_do_not_receive_shadows = false
-flags_disable_ambient_light = false
-flags_ensure_correct_normals = false
-vertex_color_use_as_albedo = false
-vertex_color_is_srgb = false
-params_diffuse_mode = 0
-params_specular_mode = 0
-params_blend_mode = 0
-params_cull_mode = 0
-params_depth_draw_mode = 0
-params_line_width = 1.0
-params_point_size = 1.0
-params_billboard_mode = 0
-params_billboard_keep_scale = false
-params_grow = false
-params_use_alpha_scissor = false
-albedo_color = Color( 0.576471, 0.0431373, 0.0431373, 1 )
-metallic = 0.0
-metallic_specular = 0.5
-metallic_texture_channel = 0
-roughness = 1.0
-roughness_texture_channel = 0
-emission_enabled = false
-normal_enabled = false
-rim_enabled = false
-clearcoat_enabled = false
-anisotropy_enabled = false
-ao_enabled = false
-depth_enabled = false
-subsurf_scatter_enabled = false
-transmission_enabled = false
-refraction_enabled = false
-detail_enabled = false
-uv1_scale = Vector3( 1, 1, 1 )
-uv1_offset = Vector3( 0, 0, 0 )
-uv1_triplanar = false
-uv1_triplanar_sharpness = 1.0
-uv2_scale = Vector3( 1, 1, 1 )
-uv2_offset = Vector3( 0, 0, 0 )
-uv2_triplanar = false
-uv2_triplanar_sharpness = 1.0
-proximity_fade_enable = false
-distance_fade_mode = 0
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+flip_faces = false
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 8
+is_hemisphere = false
 
-[sub_resource type="ParticlesMaterial" id=10]
+[sub_resource type="ParticlesMaterial" id=9]
 
 render_priority = 0
 trail_divisor = 1
@@ -305,7 +262,7 @@ anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
 
-[sub_resource type="SpatialMaterial" id=11]
+[sub_resource type="SpatialMaterial" id=10]
 
 render_priority = 0
 flags_transparent = false
@@ -360,9 +317,9 @@ uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
 distance_fade_mode = 0
 
-[sub_resource type="CylinderMesh" id=12]
+[sub_resource type="CylinderMesh" id=11]
 
-material = SubResource( 11 )
+material = SubResource( 10 )
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 flip_faces = false
 top_radius = 0.1
@@ -434,24 +391,10 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 7 )
 skeleton = NodePath("..")
-material/0 = null
+material/0 = ExtResource( 3 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Capsule/Cap"]
-transform = Transform( 1, 0, 0, 2.10195e-44, 1, 0, 0, 0, 1, 0, 0.221314, 0 )
-layers = 1
-material_override = null
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = null
-skeleton = NodePath("..")
-
-[node name="MeshInstance" type="MeshInstance" parent="Capsule/Cap/MeshInstance"]
-transform = Transform( -7.81206e-09, 4.62275e-09, -0.6, 0.144426, 0.138352, -7.33047e-09, 0.233446, -0.243695, -4.42536e-08, -1.91222e-16, -0.231804, -0.451918 )
+[node name="CapForward" type="MeshInstance" parent="Capsule/Cap"]
+transform = Transform( -7.81206e-09, 4.62275e-09, -0.6, 0.144426, 0.138352, -7.33047e-09, 0.233446, -0.243695, -4.42536e-08, -1.91222e-16, -0.0104899, -0.451918 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -463,10 +406,25 @@ lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
 mesh = SubResource( 8 )
 skeleton = NodePath("..")
-material/0 = SubResource( 9 )
+material/0 = ExtResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Capsule/Cap"]
+transform = Transform( 1, 0, 0, 1.96182e-44, 1, 0, 0, 0, 1, -1.59242e-19, 0.244077, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 12 )
+skeleton = NodePath("..")
+material/0 = ExtResource( 4 )
 
 [node name="Particles" type="Particles" parent="Capsule/Cap"]
-transform = Transform( 1, 2.8039e-16, -1.05043e-16, -2.62838e-15, 0.753849, -0.657048, -6.33451e-15, 0.657048, 0.753849, 0, 0, 1.16415e-10 )
+transform = Transform( 1, 2.8039e-16, -1.05043e-16, -2.62838e-15, 0.753849, -0.657048, -6.33451e-15, 0.657048, 0.753849, -8.79e-17, 0, -0.206003 )
 layers = 1
 material_override = null
 cast_shadow = 1
@@ -489,14 +447,14 @@ fract_delta = true
 visibility_aabb = AABB( -4, -4, -4.47412, 8, 8, 8 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 10 )
+process_material = SubResource( 9 )
 draw_passes = 4
-draw_pass_1 = SubResource( 12 )
+draw_pass_1 = SubResource( 11 )
 draw_pass_2 = null
 draw_pass_3 = null
 draw_pass_4 = null
 
-[node name="CameraController" parent="." instance=ExtResource( 3 )]
+[node name="CameraController" parent="." instance=ExtResource( 5 )]
 
 [node name="AttackHandle" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, -3.38813e-21, 0, 1, 2.39243, 1.13539, -2.57074 )
