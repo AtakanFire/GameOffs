@@ -1,14 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Resources/Materials/Red.tres" type="Material" id=1]
 [ext_resource path="res://Resources/Materials/Green.tres" type="Material" id=2]
 
-[sub_resource type="SphereShape" id=2]
+[sub_resource type="SphereShape" id=6]
 
 margin = 0.04
 radius = 1.0
 
-[sub_resource type="PrismMesh" id=1]
+[sub_resource type="PrismMesh" id=7]
 
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 flip_faces = false
@@ -17,6 +17,64 @@ size = Vector3( 2, 2, 2 )
 subdivide_width = 0
 subdivide_height = 0
 subdivide_depth = 0
+
+[sub_resource type="ParticlesMaterial" id=4]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = false
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, 9.8, 0 )
+initial_velocity = 0.1
+initial_velocity_random = 0.1
+angular_velocity = 10.0
+angular_velocity_random = 0.2
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 10.0
+radial_accel_random = 0.07
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 5.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 0.5
+scale_random = 0.4
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+
+[sub_resource type="SphereMesh" id=8]
+
+material = ExtResource( 2 )
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+flip_faces = true
+radius = 0.1
+height = 0.2
+radial_segments = 64
+rings = 32
+is_hemisphere = false
+
+[sub_resource type="SphereMesh" id=9]
+
+material = ExtResource( 1 )
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+flip_faces = false
+radius = 0.1
+height = 0.2
+radial_segments = 64
+rings = 32
+is_hemisphere = false
 
 [node name="SpeedUp" type="Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
@@ -43,7 +101,7 @@ reverb_bus_uniformity = 0.0
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 2, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 6 )
 disabled = false
 
 [node name="Meshes" type="Spatial" parent="."]
@@ -59,7 +117,7 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 7 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 1 )
 
@@ -74,7 +132,103 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = SubResource( 1 )
+mesh = SubResource( 7 )
 skeleton = NodePath("..")
 material/0 = ExtResource( 2 )
+
+[node name="Particles" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0 )
+
+[node name="Particles" type="Particles" parent="Particles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+emitting = true
+amount = 8
+lifetime = 1.0
+one_shot = false
+preprocess = 1.8
+speed_scale = 1.6
+explosiveness = 0.16
+randomness = 0.5
+fixed_fps = 0
+fract_delta = true
+visibility_aabb = AABB( -0.20001, -0.20001, -0.20001, 0.40002, 0.40002, 0.40002 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 4 )
+draw_passes = 4
+draw_pass_1 = SubResource( 8 )
+draw_pass_2 = null
+draw_pass_3 = null
+draw_pass_4 = null
+
+[node name="Particles2" type="Particles" parent="Particles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1, -5 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+emitting = true
+amount = 8
+lifetime = 1.0
+one_shot = false
+preprocess = 1.8
+speed_scale = 1.6
+explosiveness = 0.16
+randomness = 0.5
+fixed_fps = 0
+fract_delta = true
+visibility_aabb = AABB( -0.20001, -0.20001, -0.20001, 0.40002, 0.40002, 0.40002 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 4 )
+draw_passes = 4
+draw_pass_1 = SubResource( 9 )
+draw_pass_2 = null
+draw_pass_3 = null
+draw_pass_4 = null
+
+[node name="Particles3" type="Particles" parent="Particles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1, 5 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+emitting = true
+amount = 8
+lifetime = 1.0
+one_shot = false
+preprocess = 1.8
+speed_scale = 1.6
+explosiveness = 0.16
+randomness = 0.5
+fixed_fps = 0
+fract_delta = true
+visibility_aabb = AABB( -0.20001, -0.20001, -0.20001, 0.40002, 0.40002, 0.40002 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 4 )
+draw_passes = 4
+draw_pass_1 = SubResource( 9 )
+draw_pass_2 = null
+draw_pass_3 = null
+draw_pass_4 = null
 

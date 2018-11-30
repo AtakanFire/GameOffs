@@ -71,7 +71,7 @@ custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 flip_faces = false
 size = Vector2( 1, 1.5 )
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=4]
 
 render_priority = 0
 trail_divisor = 1
@@ -107,7 +107,7 @@ anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
 
-[sub_resource type="SphereMesh" id=4]
+[sub_resource type="SphereMesh" id=5]
 
 material = ExtResource( 2 )
 custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
@@ -176,7 +176,6 @@ skeleton = NodePath("..")
 material/0 = null
 
 [node name="AllParticles" type="Spatial" parent="."]
-editor/display_folded = true
 
 [node name="Particles" type="Particles" parent="AllParticles"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1, -1 )
@@ -202,9 +201,9 @@ fract_delta = true
 visibility_aabb = AABB( -0.20001, -0.20001, -0.20001, 0.40002, 0.40002, 0.40002 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 5 )
+process_material = SubResource( 4 )
 draw_passes = 4
-draw_pass_1 = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )
 draw_pass_2 = null
 draw_pass_3 = null
 draw_pass_4 = null
@@ -233,9 +232,9 @@ fract_delta = true
 visibility_aabb = AABB( -0.20001, -0.20001, -0.20001, 0.40002, 0.40002, 0.40002 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 5 )
+process_material = SubResource( 4 )
 draw_passes = 4
-draw_pass_1 = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )
 draw_pass_2 = null
 draw_pass_3 = null
 draw_pass_4 = null
@@ -264,9 +263,9 @@ fract_delta = true
 visibility_aabb = AABB( -0.20001, -0.20001, -0.20001, 0.40002, 0.40002, 0.40002 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 5 )
+process_material = SubResource( 4 )
 draw_passes = 4
-draw_pass_1 = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )
 draw_pass_2 = null
 draw_pass_3 = null
 draw_pass_4 = null
@@ -295,9 +294,9 @@ fract_delta = true
 visibility_aabb = AABB( -0.20001, -0.20001, -0.20001, 0.40002, 0.40002, 0.40002 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 5 )
+process_material = SubResource( 4 )
 draw_passes = 4
-draw_pass_1 = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )
 draw_pass_2 = null
 draw_pass_3 = null
 draw_pass_4 = null

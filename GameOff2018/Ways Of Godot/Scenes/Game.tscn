@@ -827,12 +827,11 @@ shape = SubResource( 4 )
 disabled = false
 
 [node name="SpeedUps" type="Spatial" parent="."]
-editor/display_folded = true
 script = ExtResource( 31 )
 speedTimerCount = 8
 
 [node name="SpeedUp" parent="SpeedUps" instance=ExtResource( 32 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -32, -18, -108 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -32, -17, -108 )
 
 [node name="SpeedUp2" parent="SpeedUps" instance=ExtResource( 32 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -180, -17, -250 )
@@ -844,7 +843,7 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 46, -15
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -186, 15, -319 )
 
 [node name="SpeedUp5" parent="SpeedUps" instance=ExtResource( 32 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 175, 44, -34 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 173, 44, -34 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SpeedUps"]
 root_node = NodePath("..")
