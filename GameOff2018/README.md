@@ -15,9 +15,9 @@ There is no art content. "Resources" > "Arts"
 * **Description**: *Godot Traveler, welcome  to "Ways of Godot".*
 * **Images**:
   * Godot Traveler with Godot Heads
-    * ![Godot Traveler with Godot Heads](./Resources/Screenshot/Godot Traveler with Godot Heads.png)
+    * <img src="/GameOff2018/Resources/Screenshot/Godot Traveler with Godot Heads.png" alt="Godot Traveler with Godot Heads" width="800"/>
   * Godot Traveler with Page
-    * ![Godot Traveler with Godot Heads](./Resources/Screenshot/Godot Traveler with Page.png)
+    * <img src="/GameOff2018/Resources/Screenshot/Godot Traveler with Page.png" alt="Godot Traveler with Page" width="800"/>
 * **Tools**: *Godot (v3.1_a2)*
 * **Comment**: Godot will be good engine, but it doesn't ready for 3D in v3.06-v3.1_alpha2. So We 'Waiting for Godot'...  
  * **Sincerity**: And 'Why not camelCase(Or PascalCase)?'🤔 Thanks for camelCase AutoComplete...

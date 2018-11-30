@@ -38,7 +38,7 @@ Game Off projects repositories will be here...
 * **Theme**: *HYBRID*
 * **Name**: *[Ways of Godot](./GameOff2018)*
 * **Description**: *Let's find Godot.*
-* **Image**: ![Godot Traveler with Godot Heads](./GameOff2018/Resources/Screenshot/Godot Traveler with Godot Heads.png)
+* **Image**:  <img src="/GameOff2018/Resources/Screenshot/Godot Traveler with Godot Heads.png" alt="Godot Traveler with Godot Heads" width="800"/>
 * **Tools**: *Godot (v3.1_a2)*
 * **Comment**: Godot will be good engine, but it doesn't ready for 3D in v3.06-v3.1_alpha2. So We 'Waiting for Godot'...  
 * **ThirdParty**: [ThirdParty](./GameOff2018/Resources/ThirdParty.md)
