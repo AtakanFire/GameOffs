@@ -20,7 +20,6 @@ There is no art content. "Resources" > "Arts"
     * <img src="/GameOff2018/Resources/Screenshot/Godot Traveler with Page.png" alt="Godot Traveler with Page" width="800"/>
 * **Tools**: *Godot (v3.1_a2)*
 * **Comment**: Godot will be good engine, but it doesn't ready for 3D in v3.06-v3.1_alpha2. So We 'Waiting for Godot'...  
- * **Sincerity**: And 'Why not camelCase(Or PascalCase)?'🤔 Thanks for camelCase AutoComplete...
  * **Also** *Blender (v2.8_a2)*.
 * **ThirdParty**: [ThirdParty](./Resources/ThirdParty.md)
 * **Keywords**: 3D, Third Person, Escape, Godot

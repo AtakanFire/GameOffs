@@ -1,0 +1,22 @@
+{
+  "name": "gameoff2019",
+  "version": "0.0.1",
+  "description": "Gameoff2019",
+  "main": "index.html",
+  "scripts": {
+    "serve": "http-server -p 8520",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AtakanFire/GameOffs/tree/master/GameOff2019/"
+  },
+  "keywords": [
+    "GameOff"
+  ],
+  "author": "Atakan Ateş",
+  "license": "MIT",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  }
+}
