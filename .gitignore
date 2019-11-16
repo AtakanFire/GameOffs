@@ -5,7 +5,3 @@ export_presets.cfg
 
 # Mono-specific ignores
 .mono/
-
-# Node js ignores
-node_modules/
-package-lock.json
