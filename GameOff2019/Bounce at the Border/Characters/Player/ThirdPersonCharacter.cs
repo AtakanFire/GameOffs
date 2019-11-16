@@ -44,22 +44,22 @@ public class ThirdPersonCharacter : KinematicBody
 
         if (Input.IsActionPressed("Forward") || (Input.IsActionPressed("RightMouseButton") && Input.IsActionPressed("LeftMouseButton")))
         {
-            direction.z -= 1;
+            direction.z += 1;
         }
         if (Input.IsActionPressed("Back"))
         {
-            direction.z += 1;
+            direction.z -= 1;
         }
 
         if (Input.IsActionPressed("RightMouseButton"))
         {
             if (Input.IsActionPressed("Right"))
             {
-                direction.x += 1;
+                direction.x -= 1;
             }
             if (Input.IsActionPressed("Left"))
             {
-                direction.x -= 1;
+                direction.x += 1;
             }
         }
 
@@ -104,6 +104,11 @@ public class ThirdPersonCharacter : KinematicBody
             verticalVelocity.y = 0f;
             isAirborne = false;
         }
+        GetForwardSpeed();
     }
     
+    public float GetForwardSpeed()
+    {
+        return movementSpeed.z;
+    }
 }
