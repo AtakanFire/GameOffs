@@ -26,7 +26,6 @@ public class Finder : Spatial
             else
             {
                 Free();
-                GD.Print("Free");
             }
         }
     }
@@ -46,7 +45,6 @@ public class Finder : Spatial
                 {
                     nearest = (Spatial)bookSpawner.GetChild(i);
                 }
-                GD.Print(i + ": " + GlobalTransform.origin + " | " + nearest.GlobalTransform.origin + " | " + element.GlobalTransform.origin + " | ");
             }  
             target = nearest;
         }

@@ -58,6 +58,7 @@
     <Compile Include="Characters\Player\Spell\Finder.cs" />
     <Compile Include="Characters\Player\ThirdPersonCharacter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Props\BookSpawner.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -2065,7 +2065,7 @@ material/5 = null
 material/6 = null
 
 [node name="RightHand" type="BoneAttachment" parent="Witch/CharacterArmature"]
-transform = Transform( -0.238205, -0.967731, 0.0821929, 0.137433, 0.0501909, 0.989238, -0.961442, 0.246938, 0.121042, -0.549023, 0.911857, -0.0596999 )
+transform = Transform( -0.0432129, 0.00163018, 0.999064, 0.0376874, 0.99929, -5.36442e-07, -0.998355, 0.0376522, -0.0432435, -1.27235, 1.85972, -0.0221124 )
 bone_name = "Fist.R"
 
 [node name="AnimationTree" type="AnimationTree" parent="Witch"]
@@ -2084,3 +2084,4 @@ shape = SubResource( 44 )
 
 [node name="Spells" type="Node" parent="."]
 script = ExtResource( 4 )
+playerTakeRange = 5.0
