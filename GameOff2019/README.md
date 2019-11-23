@@ -2,7 +2,8 @@
 
 **Game Off:** Creating games in **about 30 days** with *open source tools*.
 
-[About](#About)
+[About](#About),
+[Gameplay](#Gameplay)
 
 ***
 
@@ -19,3 +20,9 @@
 
 ***
 
+## Gameplay
+
+
+
+
+***

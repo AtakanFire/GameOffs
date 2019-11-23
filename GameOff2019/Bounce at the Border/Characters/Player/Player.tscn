@@ -1816,98 +1816,98 @@ bind/22/pose = Transform( 1, -4.71887e-08, 2.00135e-07, -6.25843e-06, 0.104205, 
 [sub_resource type="AnimationNodeAnimation" id=20]
 animation = "Death"
 
-[sub_resource type="AnimationNodeAnimation" id=40]
+[sub_resource type="AnimationNodeAnimation" id=21]
 animation = "Idle"
 
-[sub_resource type="AnimationNodeAnimation" id=41]
+[sub_resource type="AnimationNodeAnimation" id=22]
 animation = "Walk"
 
-[sub_resource type="AnimationNodeAnimation" id=42]
+[sub_resource type="AnimationNodeAnimation" id=23]
 animation = "Run"
 
-[sub_resource type="AnimationNodeBlendSpace1D" id=43]
-blend_point_0/node = SubResource( 40 )
+[sub_resource type="AnimationNodeBlendSpace1D" id=24]
+blend_point_0/node = SubResource( 21 )
 blend_point_0/pos = 0.0
-blend_point_1/node = SubResource( 41 )
+blend_point_1/node = SubResource( 22 )
 blend_point_1/pos = 4.0
-blend_point_2/node = SubResource( 42 )
+blend_point_2/node = SubResource( 23 )
 blend_point_2/pos = 10.0
 min_space = 0.0
 max_space = 10.0
 snap = 0.4
 
-[sub_resource type="AnimationNodeAnimation" id=22]
+[sub_resource type="AnimationNodeAnimation" id=25]
 animation = "Jump"
 
-[sub_resource type="AnimationNodeAnimation" id=23]
+[sub_resource type="AnimationNodeAnimation" id=26]
 animation = "PickUp"
 
-[sub_resource type="AnimationNodeAnimation" id=44]
+[sub_resource type="AnimationNodeAnimation" id=27]
 animation = "Punch"
 
-[sub_resource type="AnimationNodeAnimation" id=24]
+[sub_resource type="AnimationNodeAnimation" id=28]
 animation = "Roll"
 
-[sub_resource type="AnimationNodeAnimation" id=46]
+[sub_resource type="AnimationNodeAnimation" id=29]
 animation = "Victory"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=47]
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=48]
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
 switch_mode = 2
 auto_advance = true
 xfade_time = 0.4
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=49]
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=50]
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=51]
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=52]
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=53]
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=54]
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=55]
+[sub_resource type="AnimationNodeStateMachineTransition" id=38]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=56]
+[sub_resource type="AnimationNodeStateMachineTransition" id=39]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=57]
+[sub_resource type="AnimationNodeStateMachineTransition" id=40]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=58]
+[sub_resource type="AnimationNodeStateMachineTransition" id=41]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachine" id=37]
+[sub_resource type="AnimationNodeStateMachine" id=42]
 states/Death/node = SubResource( 20 )
 states/Death/position = Vector2( 332, 238 )
-states/Idle-Run/node = SubResource( 43 )
+states/Idle-Run/node = SubResource( 24 )
 states/Idle-Run/position = Vector2( 332, 107 )
-states/Jump/node = SubResource( 22 )
+states/Jump/node = SubResource( 25 )
 states/Jump/position = Vector2( 332, -1 )
-states/PickUp/node = SubResource( 23 )
+states/PickUp/node = SubResource( 26 )
 states/PickUp/position = Vector2( 51, -1 )
-states/Punch/node = SubResource( 44 )
+states/Punch/node = SubResource( 27 )
 states/Punch/position = Vector2( 51, 107 )
-states/Roll/node = SubResource( 24 )
+states/Roll/node = SubResource( 28 )
 states/Roll/position = Vector2( 609, 107 )
-states/Victory/node = SubResource( 46 )
+states/Victory/node = SubResource( 29 )
 states/Victory/position = Vector2( 609, 238 )
-transitions = [ "Idle-Run", "Jump", SubResource( 47 ), "Jump", "Idle-Run", SubResource( 48 ), "Idle-Run", "Death", SubResource( 49 ), "Death", "Idle-Run", SubResource( 50 ), "Idle-Run", "Roll", SubResource( 51 ), "Roll", "Idle-Run", SubResource( 52 ), "Idle-Run", "Punch", SubResource( 53 ), "Punch", "Idle-Run", SubResource( 54 ), "Idle-Run", "PickUp", SubResource( 55 ), "PickUp", "Idle-Run", SubResource( 56 ), "Idle-Run", "Victory", SubResource( 57 ), "Victory", "Idle-Run", SubResource( 58 ) ]
+transitions = [ "Idle-Run", "Jump", SubResource( 30 ), "Jump", "Idle-Run", SubResource( 31 ), "Idle-Run", "Death", SubResource( 32 ), "Death", "Idle-Run", SubResource( 33 ), "Idle-Run", "Roll", SubResource( 34 ), "Roll", "Idle-Run", SubResource( 35 ), "Idle-Run", "Punch", SubResource( 36 ), "Punch", "Idle-Run", SubResource( 37 ), "Idle-Run", "PickUp", SubResource( 38 ), "PickUp", "Idle-Run", SubResource( 39 ), "Idle-Run", "Victory", SubResource( 40 ), "Victory", "Idle-Run", SubResource( 41 ) ]
 graph_offset = Vector2( -15.8354, 50 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=38]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=43]
 
-[sub_resource type="CapsuleShape" id=39]
+[sub_resource type="CapsuleShape" id=44]
 height = 2.0
 
 [node name="Player" type="KinematicBody"]
@@ -2056,18 +2056,18 @@ material/5 = null
 material/6 = null
 
 [node name="AnimationTree" type="AnimationTree" parent="Witch"]
-tree_root = SubResource( 37 )
+tree_root = SubResource( 42 )
 anim_player = NodePath("../CharacterArmature/AnimationPlayer")
 active = true
-parameters/playback = SubResource( 38 )
+parameters/playback = SubResource( 43 )
 parameters/Idle-Run/blend_position = 0.0
 script = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 2, 0 )
-shape = SubResource( 39 )
+shape = SubResource( 44 )
 
 [node name="CameraController" parent="." instance=ExtResource( 2 )]
 
-[node name="Node" type="Node" parent="."]
+[node name="Spells" type="Node" parent="."]
 script = ExtResource( 4 )

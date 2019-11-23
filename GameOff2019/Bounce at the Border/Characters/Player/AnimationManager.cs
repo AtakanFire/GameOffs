@@ -21,10 +21,10 @@ public class AnimationManager : AnimationTree
         {
             Set("parameters/Idle-Run/blend_position", Mathf.Lerp(character.GetForwardSpeed(), 10, 0.1f));
         }  
-        if (Input.IsActionPressed("Back"))
+        else
         {
             Set("parameters/Idle-Run/blend_position", Mathf.Lerp(character.GetForwardSpeed(), 0, 0.005f));
-        }  
+        }
         if (Input.IsActionJustPressed("Jump") && character.IsOnFloor())
         {
             playback.Travel("Jump");

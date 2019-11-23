@@ -2,5 +2,6 @@
 
 ## Thanks
 
-Quaternius
-https://www.patreon.com/quaternius/posts
+### Quaternius
+* Ultimate Animated Character Pack!
+  * https://www.patreon.com/quaternius/posts
