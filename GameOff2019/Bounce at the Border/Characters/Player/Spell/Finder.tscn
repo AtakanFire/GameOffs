@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Characters/Player/Spell/Finder.cs" type="Script" id=1]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.504132, 1 )
+colors = PoolColorArray( 1, 0, 0, 1, 0.984633, 0.830784, 0, 1, 0.945312, 1, 0, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+width = 512
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.733669, 0.544 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+width = 512
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.2
+angular_velocity_random = 0.1
+linear_accel = 2.0
+linear_accel_random = 0.6
+scale = 2.0
+scale_random = 0.5
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+hue_variation = 0.7
+hue_variation_random = 0.1
+
+[sub_resource type="SpatialMaterial" id=6]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id=7]
+material = SubResource( 6 )
+radius = 0.1
+height = 0.2
+radial_segments = 8
+rings = 8
+
+[node name="Finder" type="Spatial"]
+script = ExtResource( 1 )
+moveSpeed = 5.0
+
+[node name="Particles" type="Particles" parent="."]
+process_material = SubResource( 5 )
+draw_pass_1 = SubResource( 7 )

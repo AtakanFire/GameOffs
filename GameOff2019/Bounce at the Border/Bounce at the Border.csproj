@@ -55,6 +55,7 @@
     <Compile Include="Characters\Player\AnimationManager.cs" />
     <Compile Include="Characters\Player\CameraController.cs" />
     <Compile Include="Characters\Player\Spells.cs" />
+    <Compile Include="Characters\Player\Spell\Finder.cs" />
     <Compile Include="Characters\Player\ThirdPersonCharacter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

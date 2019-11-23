@@ -29,5 +29,15 @@ public class AnimationManager : AnimationTree
         {
             playback.Travel("Jump");
         }  
+        if (Input.IsActionJustPressed("Find"))
+        {
+            playback.Travel("Punch");
+            GD.Print("Find Book");
+        }
+        if (Input.IsActionJustPressed("Take"))
+        {
+            playback.Travel("PickUp");
+            GD.Print("Take Book");
+        }
     }
 }
