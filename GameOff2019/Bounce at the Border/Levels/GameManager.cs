@@ -65,7 +65,9 @@ public class GameManager : Node
 
     private void Restart()
     {
-        GetTree().ReloadCurrentScene();
+        //GetTree().ReloadCurrentScene(); // Restart All Game
+        gameLevel--;
+        NextLevel();
     }
 
     private void NextLevel()

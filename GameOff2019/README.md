@@ -14,7 +14,7 @@
 * **Images**:
   * ImageDescription
     * Image
-* **Tools**: Godot (v3.2.beta1.mono.official), Blender (v2.80) + Addon(Godot Blender Exporter)
+* **Tools**: Godot (v3.2.beta2.mono.official), Blender (v2.80) + Addon(Godot Blender Exporter)
 * **ThirdParty**: [ThirdParty](./Resources/ThirdParty.md)
 * **Keywords**: 3D, Third Person, Godot, Blender, Open source
 

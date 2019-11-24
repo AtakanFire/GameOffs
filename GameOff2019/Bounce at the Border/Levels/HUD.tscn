@@ -19,12 +19,12 @@ expand_margin_left = 15.0
 expand_margin_right = 15.0
 expand_margin_bottom = 5.0
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.12549, 0.12549, 0.12549, 1 )
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.219608, 0.211765, 0.227451, 1 )
 corner_radius_top_left = 25
 corner_radius_top_right = 25
@@ -32,7 +32,7 @@ expand_margin_left = 5.0
 expand_margin_right = 5.0
 expand_margin_top = 5.0
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "FadeInOut"
 length = 2.0
 tracks/0/type = "value"
@@ -60,7 +60,7 @@ tracks/1/keys = {
 "values": [ 46.0, 0.0, 0.0, 46.0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 resource_name = "OpenPortal"
 length = 2.0
 tracks/0/type = "value"
@@ -116,7 +116,8 @@ Create Step: Q or Shift
 Take Book: E
 Reset Steps: R
 Find Book: 1
-Next Level: F or Click Portal"
+Next Level: F or Click Portal
+Restart Level: P ​​"
 mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -170,8 +171,8 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-custom_styles/fg = SubResource( 4 )
-custom_styles/bg = SubResource( 5 )
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -245,5 +246,5 @@ __meta__ = {
 
 [node name="HUDAnim" type="AnimationPlayer" parent="."]
 autoplay = "FadeInOut"
-anims/FadeInOut = SubResource( 6 )
-anims/OpenPortal = SubResource( 7 )
+anims/FadeInOut = SubResource( 5 )
+anims/OpenPortal = SubResource( 6 )

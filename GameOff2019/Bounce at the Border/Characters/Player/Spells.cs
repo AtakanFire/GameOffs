@@ -77,10 +77,11 @@ public class Spells : Node
 
     private void SkillTake() // Taking Skill
     {
-        for (int i = 0; i < bookSpawner.GetChildCount(); i++)
+        Godot.Collections.Array children = bookSpawner.GetChildren();
+        for (int i = 0; i < children.Count; i++)
         {
-            Spatial book = (Spatial)bookSpawner.GetChild(i);
-            if ((rightHandBone.GlobalTransform.origin - book.GlobalTransform.origin).LengthSquared() < playerTakeRange)
+            Spatial book = (Spatial)children[i];
+            if (book != null && (rightHandBone.GlobalTransform.origin - book.GlobalTransform.origin).LengthSquared() < playerTakeRange)
             {
                 book.Free();
             }
