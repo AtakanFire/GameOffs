@@ -1328,6 +1328,7 @@ tracks/22/keys = PoolRealArray( 0, 1, -5.64614e-08, -7.567e-10, -5.09317e-08, 0.
 [sub_resource type="Animation" id=9]
 resource_name = "Victory"
 length = 1.83333
+loop = true
 tracks/0/type = "transform"
 tracks/0/path = NodePath(".:Bone")
 tracks/0/interp = 1
@@ -1893,7 +1894,6 @@ xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=41]
 switch_mode = 2
-auto_advance = true
 xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachine" id=42]
@@ -1912,7 +1912,7 @@ states/Roll/position = Vector2( 609, 107 )
 states/Victory/node = SubResource( 29 )
 states/Victory/position = Vector2( 609, 238 )
 transitions = [ "Idle-Run", "Jump", SubResource( 30 ), "Jump", "Idle-Run", SubResource( 31 ), "Idle-Run", "Death", SubResource( 32 ), "Death", "Idle-Run", SubResource( 33 ), "Idle-Run", "Roll", SubResource( 34 ), "Roll", "Idle-Run", SubResource( 35 ), "Idle-Run", "Punch", SubResource( 36 ), "Punch", "Idle-Run", SubResource( 37 ), "Idle-Run", "PickUp", SubResource( 38 ), "PickUp", "Idle-Run", SubResource( 39 ), "Idle-Run", "Victory", SubResource( 40 ), "Victory", "Idle-Run", SubResource( 41 ) ]
-graph_offset = Vector2( -1.83539, -22 )
+graph_offset = Vector2( 72.0918, 36.32 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=43]
 

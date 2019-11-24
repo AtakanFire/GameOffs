@@ -3,6 +3,9 @@ using System;
 
 public class Spells : Node
 {
+    [Signal]
+    public delegate void BookReceived(float progress);
+
     PackedScene step = (PackedScene)ResourceLoader.Load("res://Characters/Player/Spell/Step.tscn");
     PackedScene finder = (PackedScene)ResourceLoader.Load("res://Characters/Player/Spell/Finder.tscn");
 
@@ -18,44 +21,71 @@ public class Spells : Node
     {
         character = (ThirdPersonCharacter)GetNode("../");
         rightHandBone = (BoneAttachment)GetNode("../Witch/CharacterArmature/RightHand");
-        bookSpawner = (BookSpawner)GetNode("/root/Gameplay/BookSpawner");
+        bookSpawner = (BookSpawner)GetNode("../../BookSpawner");
+
+        // Create First Step on 0,0,0
+        Spatial instance = (Spatial)step.Instance();
+        AddChild(instance); 
+        steps.Add(instance);  
     }
 
     public override void _Process(float delta)
     {
-        if (Input.IsActionJustPressed("Step")) // Create Floor(Step)
+        if (Input.IsActionJustPressed("Step"))
         {
-            Spatial instance = (Spatial)step.Instance();
-            AddChild(instance);   
-            instance.Transform = character.Transform;
-            steps.Add(instance);
+            SpellStep();
         }  
-        if (Input.IsActionJustPressed("ResetSteps")) // Clear Floors(Steps)
+        if (Input.IsActionJustPressed("ResetSteps"))
         {
-            for (int i = 0; i < steps.Count; i++)
-            {
-                Spatial s = (Spatial)steps[i];
-                s.Free();
-            }
-            steps.Clear();
+            SpellResetSteps();
         }  
         if (Input.IsActionJustPressed("Find"))
         {
-            Finder instance = (Finder)finder.Instance();
-            AddChild(instance);   
-            instance.Transform = rightHandBone.GlobalTransform;
-            instance.Targeting();
+            SpellFind();
         } 
         if (Input.IsActionJustPressed("Take"))
         {
-            for (int i = 0; i < bookSpawner.GetChildCount(); i++)
+            SkillTake();
+        }
+    }
+
+    private void SpellStep() // Create floor(step)
+    {
+        Spatial instance = (Spatial)step.Instance();
+        AddChild(instance);   
+        instance.Transform = character.Transform;
+        steps.Add(instance);
+    }
+
+    private void SpellResetSteps() // Remove all floors(steps)
+    {
+        for (int i = 0; i < steps.Count; i++)
+        {
+            Spatial s = (Spatial)steps[i];
+            s.Free();
+        }
+        steps.Clear();
+    }
+
+    private void SpellFind() // Throw particle to nearest book 
+    {
+        Finder instance = (Finder)finder.Instance();
+        AddChild(instance);   
+        instance.Transform = rightHandBone.GlobalTransform;
+        instance.Targeting();
+    }
+
+    private void SkillTake() // Taking Skill
+    {
+        for (int i = 0; i < bookSpawner.GetChildCount(); i++)
+        {
+            Spatial book = (Spatial)bookSpawner.GetChild(i);
+            if ((rightHandBone.GlobalTransform.origin - book.GlobalTransform.origin).LengthSquared() < playerTakeRange)
             {
-                Spatial book = (Spatial)bookSpawner.GetChild(i);
-                if ((rightHandBone.GlobalTransform.origin - book.GlobalTransform.origin).LengthSquared() < playerTakeRange)
-                {
-                    book.Free();
-                }
+                book.Free();
             }
         }
+        float progress = ((float)bookSpawner.spawnCount - (float)bookSpawner.GetChildCount())/(float)bookSpawner.spawnCount;
+        EmitSignal(nameof(BookReceived), progress);
     }
 }

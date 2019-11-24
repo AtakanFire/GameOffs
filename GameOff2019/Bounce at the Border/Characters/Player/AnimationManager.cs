@@ -38,4 +38,10 @@ public class AnimationManager : AnimationTree
             playback.Travel("PickUp");
         }
     }
+
+    public void Victory()
+    {
+        playback.Travel("Victory");
+    }
+
 }

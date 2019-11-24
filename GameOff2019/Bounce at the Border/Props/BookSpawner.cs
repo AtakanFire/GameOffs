@@ -9,17 +9,13 @@ public class BookSpawner : Spatial
     public int spawnRange = 10;
 
     [Export]
-    private int bookCount = 10;
+    public int spawnCount = 10;
 
     private RandomNumberGenerator rng = new RandomNumberGenerator();
 
     public override void _Ready()
     {
         rng.Randomize();
-        for (int i = 0; i < bookCount; i++)
-        {
-            SpawnBooks();
-        }
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,13 +24,27 @@ public class BookSpawner : Spatial
 //      
 //  }
 
-    public void SpawnBooks()
+    public void SpawnBook()
     {
         Spatial instance = (Spatial)book.Instance();
         AddChild(instance);   
         Vector3 randomLocation = new Vector3(rng.RandiRange(-spawnRange, spawnRange), rng.RandiRange(-spawnRange, spawnRange), rng.RandiRange(-spawnRange, spawnRange));
         instance.Translate(randomLocation);
         instance.RotateY(rng.RandiRange(0, 360));
+    }
+
+    public void SpawnBooks()
+    {
+        for (int i = 0; i < spawnCount; i++)
+        {
+            SpawnBook();
+        }
+    }
+
+    public void SpawnSettings(int sRange, int sBook)
+    {
+        spawnRange = sRange/2;
+        spawnCount = sBook;
     }
 
 }

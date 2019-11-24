@@ -7,10 +7,11 @@ public class Finder : Spatial
     public float moveSpeed = 1.0f;
     public Spatial target;
 
+    private Spatial bookSpawner;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-
+        bookSpawner = (Spatial)GetNode("../../../BookSpawner");
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,8 +33,6 @@ public class Finder : Spatial
 
     public void Targeting()
     {
-        Spatial bookSpawner = (Spatial)GetNode("/root/Gameplay/BookSpawner/");
-
         if (bookSpawner.GetChildCount() > 0)
         {
             Spatial nearest = (Spatial)bookSpawner.GetChild(0);

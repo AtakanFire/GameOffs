@@ -1,9 +1,98 @@
-[gd_scene format=2]
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Levels/HUD.cs" type="Script" id=1]
+[ext_resource path="res://Levels/portal.png" type="Texture" id=2]
+[ext_resource path="res://Props/RunicFont.tres" type="DynamicFont" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.12549, 0.12549, 0.12549, 1 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.219608, 0.211765, 0.227451, 1 )
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+expand_margin_left = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.12549, 0.12549, 0.12549, 1 )
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.219608, 0.211765, 0.227451, 1 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 5.0
+
+[sub_resource type="Animation" id=6]
+resource_name = "FadeInOut"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Bot/Middle:margin_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 0.5, 1 ),
+"update": 0,
+"values": [ 46.0, 0.0, 0.0, 46.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Bot/Middle:margin_bottom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 0.5, 1 ),
+"update": 0,
+"values": [ 46.0, 0.0, 0.0, 46.0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "OpenPortal"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Portal:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( -2, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Portal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [node name="HUD" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -11,19 +100,150 @@ __meta__ = {
 [node name="Top" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 0.1
+margin_left = 1.58112
+margin_right = 1.58105
 mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Area" type="Control" parent="Top"]
+[node name="Middle" type="Control" parent="Top"]
 anchor_left = 0.4
-anchor_top = 0.4
 anchor_right = 0.6
+anchor_bottom = 0.4
+hint_tooltip = "Movement: W, A, S, D 
+Create Step: Q or Shift
+Take Book: E
+Reset Steps: R
+Find Book: 1
+Next Level: F or Click Portal"
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="Top/Middle"]
+anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+max_value = 1.0
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Panel" type="Panel" parent="Top/Area"]
+[node name="Mid" type="Control" parent="."]
+anchor_left = 0.3
+anchor_top = 0.3
+anchor_right = 0.7
+anchor_bottom = 0.7
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bot" type="Control" parent="."]
+anchor_top = 0.7
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Middle" type="Control" parent="Bot"]
+anchor_left = 0.4
+anchor_top = 0.8
+anchor_right = 0.6
+anchor_bottom = 1.0
+margin_top = 46.0
+margin_bottom = 46.0
+rect_pivot_offset = Vector2( 102.4, -74 )
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="Bot/Middle"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Bot/Middle/ProgressBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_right = -6.0
+text = "(>.<). level"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Portal" type="Control" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.4
+anchor_top = 0.8
+anchor_right = 0.6
+anchor_bottom = 0.9
+margin_bottom = 20.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Portal"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+hint_tooltip = "  Next Level  
+Shortcut: \"F\""
+mouse_default_cursor_shape = 2
+custom_fonts/font = ExtResource( 3 )
+action_mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Image" type="TextureRect" parent="Portal/Button"]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.1
+anchor_bottom = 0.1
+hint_tooltip = "  Next Level  
+Shortcut: \"F\""
+mouse_default_cursor_shape = 2
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Portal/Button"]
+anchor_left = 0.45
+anchor_top = 0.3
+anchor_right = 0.45
+anchor_bottom = 0.3
+hint_tooltip = "Next Level"
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+custom_fonts/font = ExtResource( 3 )
+text = "adarıS"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HUDAnim" type="AnimationPlayer" parent="."]
+autoplay = "FadeInOut"
+anims/FadeInOut = SubResource( 6 )
+anims/OpenPortal = SubResource( 7 )

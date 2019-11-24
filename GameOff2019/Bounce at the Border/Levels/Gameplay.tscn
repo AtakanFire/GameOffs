@@ -1,16 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Props/BookSpawner.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Characters/Player/Spell/Step.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Levels/HUD.tscn" type="PackedScene" id=4]
 
 [node name="Gameplay" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0465727, 2.20103, 0.0377502 )
-
-[node name="Step" parent="." instance=ExtResource( 3 )]
 
 [node name="BookSpawner" parent="." instance=ExtResource( 2 )]
 
