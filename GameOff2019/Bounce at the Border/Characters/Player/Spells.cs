@@ -3,9 +3,6 @@ using System;
 
 public class Spells : Node
 {
-    [Signal]
-    public delegate void BookReceived(float progress);
-
     PackedScene step = (PackedScene)ResourceLoader.Load("res://Characters/Player/Spell/Step.tscn");
     PackedScene finder = (PackedScene)ResourceLoader.Load("res://Characters/Player/Spell/Finder.tscn");
 
@@ -86,7 +83,5 @@ public class Spells : Node
                 book.Free();
             }
         }
-        float progress = ((float)bookSpawner.spawnCount - (float)bookSpawner.GetChildCount())/(float)bookSpawner.spawnCount;
-        EmitSignal(nameof(BookReceived), progress);
     }
 }

@@ -9,7 +9,6 @@ public class GameManager : Node
 
     public bool levelCompleted = false;
 
-    private Spells spells; 
     private BookSpawner bookSpawner; 
     private AnimationManager animationManager; 
     private HUD hud; 
@@ -42,12 +41,14 @@ public class GameManager : Node
         {
             NextLevel();
         }
+        if (Input.IsActionPressed("Take"))
+        {
+            CalculateProgress();
+        }
     }
 
     private void PrepareVariables()
     {
-        spells = (Spells)GetNode("/root/GameManager/Gameplay/Player/Spells");
-        spells.Connect("BookReceived", this, nameof(_on_Spells_BookReceived));
         bookSpawner = (BookSpawner)GetNode("/root/GameManager/Gameplay/BookSpawner");
         animationManager = (AnimationManager)GetNode("/root/GameManager/Gameplay/Player/Witch/AnimationTree");
         hud = (HUD)GetNode("/root/GameManager/Gameplay/HUD");
@@ -86,8 +87,12 @@ public class GameManager : Node
         CreateLevel();
     }
 
-    public void _on_Spells_BookReceived(float progress)
+    public void CalculateProgress()
     {
+        float progress = ((float)bookSpawner.spawnCount - (float)bookSpawner.GetChildCount())/(float)bookSpawner.spawnCount;
+
+        hud.LevelProgress(progress);
+
         if (progress == 1)
         {
             levelCompleted = true;

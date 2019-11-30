@@ -6,7 +6,6 @@ public class HUD : Control
     [Signal]
     public delegate void EnterToPortal();
     
-    private Spells spells; 
     private ProgressBar bar; 
     private AnimationPlayer animationPlayer; 
 
@@ -14,8 +13,6 @@ public class HUD : Control
     {
         bar = (ProgressBar)GetNode("./Top/Middle/ProgressBar");
         bar.Value = 0.0f;
-        spells = (Spells)GetNode("../Player/Spells");
-        spells.Connect("BookReceived", this, nameof(_on_Spells_BookReceived));
         animationPlayer = (AnimationPlayer)GetNode("./HUDAnim");
     }
 
@@ -30,7 +27,7 @@ public class HUD : Control
         animationPlayer.Play("OpenPortal");
     }
 
-    public void _on_Spells_BookReceived(float progress)
+    public void LevelProgress(float progress)
     {
         bar.Value = progress;
     }
