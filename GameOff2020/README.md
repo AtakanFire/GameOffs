@@ -21,7 +21,7 @@
 # Game Design 
 ## Story
 Monsters have taken over the world. And you are the last one who wants to go to the moon.
-Kill the monsters with moonlight sonata(if its possible spawn them according music).
+Kill the monsters with moonlight sonata(if its possible spawn them according music:Ignored, there is no time.).
 ## Mechanic
 Walk/Run, jump basic locomotion.
 Target based attack system, directional attack, AoE damage, Quick Near AoE
