@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Level/Props/Tree/Tree7.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Level/Props/Tree/Birch1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Level/Props/Tree/Pine4.tscn" type="PackedScene" id=3]
+
+[node name="Trees" type="Spatial"]
+
+[node name="Birch1" parent="." instance=ExtResource( 2 )]
+
+[node name="Pine4" parent="." instance=ExtResource( 3 )]
+
+[node name="Tree7" parent="." instance=ExtResource( 1 )]
+
+[editable path="Birch1"]
+
+[editable path="Pine4"]
+
+[editable path="Tree7"]

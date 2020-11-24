@@ -19,6 +19,14 @@ config/name="MoonlightTraveller"
 run/main_scene="res://Level/Level.tscn"
 config/icon="res://icon.png"
 
+[debug]
+
+settings/stdout/print_fps=true
+
+[display]
+
+mouse_cursor/custom_image="res://HUD/Image/Cursor/32x32/Cursor.png"
+
 [input]
 
 Forward={

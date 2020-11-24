@@ -3498,7 +3498,7 @@ material/4 = null
 material/5 = null
 
 [node name="RightHand" type="BoneAttachment" parent="PlayerModel/CharacterArmature"]
-transform = Transform( -0.982003, -0.107058, 0.155588, 0.127288, 0.233431, 0.964006, -0.139523, 0.966462, -0.215602, -0.497732, 0.918912, 0.0890424 )
+transform = Transform( -0.978882, -0.19878, 0.0477152, 0.112635, -0.329662, 0.937356, -0.170597, 0.922936, 0.345089, -0.440206, 0.898704, -0.499993 )
 bone_name = "Fist.R"
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -3525,5 +3525,7 @@ playerCharacterPath = NodePath("..")
 
 [node name="CameraController" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0 )
+
+[node name="Abilities" type="Node" parent="."]
 
 [editable path="CameraController"]
