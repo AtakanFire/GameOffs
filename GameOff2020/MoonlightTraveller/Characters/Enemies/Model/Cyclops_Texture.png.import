@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Bat_Texture.png-f08e0df8df217083579488c3b02743b5.s3tc.stex"
-path.etc2="res://.import/Bat_Texture.png-f08e0df8df217083579488c3b02743b5.etc2.stex"
+path.s3tc="res://.import/Cyclops_Texture.png-652b71ab93484ec8ac0de45b4e354706.s3tc.stex"
+path.etc2="res://.import/Cyclops_Texture.png-652b71ab93484ec8ac0de45b4e354706.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Characters/Enemies/Bat/Bat_Texture.png"
-dest_files=[ "res://.import/Bat_Texture.png-f08e0df8df217083579488c3b02743b5.s3tc.stex", "res://.import/Bat_Texture.png-f08e0df8df217083579488c3b02743b5.etc2.stex" ]
+source_file="res://Characters/Enemies/Model/Cyclops_Texture.png"
+dest_files=[ "res://.import/Cyclops_Texture.png-652b71ab93484ec8ac0de45b4e354706.s3tc.stex", "res://.import/Cyclops_Texture.png-652b71ab93484ec8ac0de45b4e354706.etc2.stex" ]
 
 [params]
 

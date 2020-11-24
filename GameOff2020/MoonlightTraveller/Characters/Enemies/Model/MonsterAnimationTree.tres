@@ -1,0 +1,131 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=27 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "Bite_Front"
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "Bite_InPlace"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "Dance"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "Death_Back"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "HitRecieve"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "Idle"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "Walk"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=8]
+blend_point_0/node = SubResource( 6 )
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource( 7 )
+blend_point_1/pos = 10.0
+min_space = 0.0
+max_space = 10.0
+snap = 1.0
+value_label = "Speed"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "Jump"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "No"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Yes"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+advance_condition = "Jump"
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+switch_mode = 2
+auto_advance = true
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+advance_condition = "Bite"
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+switch_mode = 2
+auto_advance = true
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+advance_condition = "Attack"
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+switch_mode = 2
+auto_advance = true
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+advance_condition = "GetHit"
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+switch_mode = 2
+auto_advance = true
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+advance_condition = "Yes"
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+switch_mode = 2
+auto_advance = true
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+advance_condition = "No"
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+switch_mode = 2
+auto_advance = true
+xfade_time = 0.3
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+advance_condition = "Death"
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+advance_condition = "Dance"
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+switch_mode = 2
+auto_advance = true
+xfade_time = 0.3
+
+[resource]
+states/Bite_Front/node = SubResource( 1 )
+states/Bite_Front/position = Vector2( 635, -8 )
+states/Bite_InPlace/node = SubResource( 2 )
+states/Bite_InPlace/position = Vector2( 635, 107 )
+states/Dance/node = SubResource( 3 )
+states/Dance/position = Vector2( 186, -8 )
+states/Death_Back/node = SubResource( 4 )
+states/Death_Back/position = Vector2( 101, 107 )
+states/HitRecieve/node = SubResource( 5 )
+states/HitRecieve/position = Vector2( 635, 245 )
+states/Idle-Walk/node = SubResource( 8 )
+states/Idle-Walk/position = Vector2( 382, 107 )
+states/Jump/node = SubResource( 9 )
+states/Jump/position = Vector2( 382, -8 )
+states/No/node = SubResource( 10 )
+states/No/position = Vector2( 186, 245 )
+states/Yes/node = SubResource( 11 )
+states/Yes/position = Vector2( 382, 245 )
+transitions = [ "Idle-Walk", "Jump", SubResource( 12 ), "Jump", "Idle-Walk", SubResource( 13 ), "Idle-Walk", "Bite_Front", SubResource( 14 ), "Bite_Front", "Idle-Walk", SubResource( 15 ), "Idle-Walk", "Bite_InPlace", SubResource( 16 ), "Bite_InPlace", "Idle-Walk", SubResource( 17 ), "Idle-Walk", "HitRecieve", SubResource( 18 ), "HitRecieve", "Idle-Walk", SubResource( 19 ), "Idle-Walk", "Yes", SubResource( 20 ), "Yes", "Idle-Walk", SubResource( 21 ), "Idle-Walk", "No", SubResource( 22 ), "No", "Idle-Walk", SubResource( 23 ), "Idle-Walk", "Death_Back", SubResource( 24 ), "Idle-Walk", "Dance", SubResource( 25 ), "Dance", "Idle-Walk", SubResource( 26 ) ]
+start_node = "Idle-Walk"
+graph_offset = Vector2( -53, -36 )

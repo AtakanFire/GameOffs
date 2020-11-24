@@ -49,12 +49,12 @@ Death
 		- Ability
 	- EnemySpawner
 		- [Enemy]
-	- MusicPlayer(sync with EnemySpawner) 
-	- Environment
-		- EnvironmentModels
+	- MusicPlayer(~~sync with EnemySpawner~~) 
 	- GameManager
 	- HUD
-
+	- Navigation(?Why work like that-Godot require a nav with mesh instance and meshes as a child) 
+		- NavigationMeshInstance
+			- EnvironmentModels
 
 ---
 - Enemy(Character+AI+~Abilities)

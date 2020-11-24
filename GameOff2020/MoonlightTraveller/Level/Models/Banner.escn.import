@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Bat.escn-63704b06bc75d11d665c926ac4aff197.scn"
+path="res://.import/Banner.escn-e19bb17028a71509d801aa8d3542d6dc.scn"
 
 [deps]
 
-source_file="res://Characters/Enemies/Bat/Bat.escn"
-dest_files=[ "res://.import/Bat.escn-63704b06bc75d11d665c926ac4aff197.scn" ]
+source_file="res://Level/Models/Banner.escn"
+dest_files=[ "res://.import/Banner.escn-e19bb17028a71509d801aa8d3542d6dc.scn" ]
 
 [params]
 

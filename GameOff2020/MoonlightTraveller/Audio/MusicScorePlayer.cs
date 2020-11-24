@@ -27,6 +27,9 @@ public class MusicScorePlayer : AudioStreamPlayer
 {
     [Export]
     // Score and music sync take time so unused
+    private bool AutoPlay = true;
+    [Export]
+    // Score and music sync take time so unused
     private bool UseScore = false;
 
     [Export(PropertyHint.Dir, "")]
@@ -44,7 +47,7 @@ public class MusicScorePlayer : AudioStreamPlayer
         {
             ReadScore();
         }
-        else
+        else if(AutoPlay)
         {
             Play();
         }
