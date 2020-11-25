@@ -1,8 +1,9 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=78 format=2]
 
 [ext_resource path="res://Characters/Player/CameraController.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Player/PlayerCharacter.cs" type="Script" id=2]
 [ext_resource path="res://Characters/Player/AnimationManager.cs" type="Script" id=3]
+[ext_resource path="res://Characters/Player/Abilities.cs" type="Script" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 2.0
@@ -3436,7 +3437,7 @@ bones/16/name = "Fist.R"
 bones/16/parent = 15
 bones/16/rest = Transform( 0.999252, -0.0362167, 0.0135389, 0.0365448, 0.999024, -0.024831, -0.0126264, 0.0253072, 0.9996, 7.45058e-09, 1.35722e-07, -0.425347 )
 bones/16/enabled = true
-bones/16/bound_children = [ NodePath("RightHand") ]
+bones/16/bound_children = [  ]
 bones/17/name = "UpperLeg.L"
 bones/17/parent = 3
 bones/17/rest = Transform( 0.999806, -0.000618905, -0.0196494, -0.0026224, -0.994718, -0.102441, -0.0194828, 0.102473, -0.994545, 0.253029, -0.0559237, 0.016702 )
@@ -3498,7 +3499,7 @@ material/4 = null
 material/5 = null
 
 [node name="RightHand" type="BoneAttachment" parent="PlayerModel/CharacterArmature"]
-transform = Transform( -0.978882, -0.19878, 0.0477152, 0.112635, -0.329662, 0.937356, -0.170597, 0.922936, 0.345089, -0.440206, 0.898704, -0.499993 )
+transform = Transform( -0.895962, 0.374422, -0.238871, 0.0928312, 0.68384, 0.723702, 0.434319, 0.626236, -0.647453, -0.360918, 0.979504, 0.578829 )
 bone_name = "Fist.R"
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -3527,5 +3528,8 @@ playerCharacterPath = NodePath("..")
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0 )
 
 [node name="Abilities" type="Node" parent="."]
+script = ExtResource( 4 )
+playerCharacterPath = NodePath("..")
+cameraPath = NodePath("../CameraController/SpringArm/Camera")
 
 [editable path="CameraController"]

@@ -7,7 +7,9 @@
 [sub_resource type="SphereShape" id=1]
 radius = 0.8
 
-[node name="Monster" type="KinematicBody"]
+[node name="Monster" type="KinematicBody" groups=[
+"Interactable",
+]]
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
