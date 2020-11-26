@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Characters/Player/Abilities/Projectile.cs" type="Script" id=1]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.460396, 1 )
+colors = PoolColorArray( 0.769043, 0.255346, 0.255346, 1, 0.831988, 0.509942, 0.209459, 1, 0.905762, 0.808339, 0.155678, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+width = 512
+
+[sub_resource type="ParticlesMaterial" id=3]
+lifetime_randomness = 0.11
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.2
+initial_velocity_random = 0.11
+radial_accel = 2.0
+radial_accel_random = 0.08
+scale_random = 0.57
+color_ramp = SubResource( 2 )
+hue_variation = 0.04
+hue_variation_random = 0.11
+
+[sub_resource type="SpatialMaterial" id=4]
+vertex_color_use_as_albedo = true
+params_diffuse_mode = 4
+metallic_specular = 1.0
+transmission_enabled = true
+transmission = Color( 0.419608, 0.419608, 0.419608, 1 )
+
+[sub_resource type="SphereMesh" id=5]
+material = SubResource( 4 )
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 8
+
+[node name="BasicProjectile" type="Spatial"]
+script = ExtResource( 1 )
+moveSpeed = 15.0
+
+[node name="Particles" type="Particles" parent="."]
+explosiveness = 0.1
+randomness = 0.09
+process_material = SubResource( 3 )
+draw_pass_1 = SubResource( 5 )

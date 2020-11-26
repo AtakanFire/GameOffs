@@ -9,6 +9,8 @@ public class PlayerCharacter : KinematicBody
     public float acceleration = 3;
     [Export]
     public float maxJump = 18;
+    [Export]
+    public NodePath teleportPointPath = new NodePath("");
     
     private Vector3 direction = new Vector3();
     private Vector3 velocity = new Vector3();
@@ -20,10 +22,19 @@ public class PlayerCharacter : KinematicBody
     private bool isAirborne = false;
     private float gravity = -9.8f;
 
+    public Spatial teleportPoint;
+
+
     public override void _Ready() 
     {
         Vector3 gravityVector = (Vector3)ProjectSettings.GetSetting("physics/3d/default_gravity_vector");
         gravity = (float)ProjectSettings.GetSetting("physics/3d/default_gravity") * gravityVector.y;
+
+        teleportPoint = GetNode<Spatial>(teleportPointPath);
+        if (!IsInstanceValid(teleportPoint))
+        {
+            GD.PrintErr("PlayerCharacter: TeleportPoint isn't valid!");
+        } 
     }
 
     public override void _UnhandledInput(InputEvent @event) 
@@ -40,6 +51,7 @@ public class PlayerCharacter : KinematicBody
         MoveDirection();
         RotateCharacter(delta);
         Movement(delta);
+        FallLimit();
     }
 
     public void MoveDirection()
@@ -114,5 +126,14 @@ public class PlayerCharacter : KinematicBody
     public float GetForwardSpeed()
     {
         return movementSpeed.z;
+    }
+
+    // When falling to universe teleport to center
+    private void FallLimit()
+    {
+        if (IsInstanceValid(teleportPoint) && Transform.origin.y < -30.0f)
+        {
+            Transform = teleportPoint.Transform;
+        }
     }
 }

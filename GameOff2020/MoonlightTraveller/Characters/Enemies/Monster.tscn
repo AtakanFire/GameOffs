@@ -9,6 +9,7 @@ radius = 0.8
 
 [node name="Monster" type="KinematicBody" groups=[
 "Interactable",
+"Monster",
 ]]
 script = ExtResource( 2 )
 
@@ -24,3 +25,5 @@ monsterPath = NodePath("..")
 script = ExtResource( 3 )
 monsterPath = NodePath("..")
 monsterModelPath = NodePath("../Model")
+[connection signal="OnKilled" from="." to="AI" method="_Monster_OnKilled"]
+[connection signal="OnReachedToTarget" from="." to="AI" method="_Monster_OnReachedToTarget"]

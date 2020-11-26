@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/AttackCursor.png-79fbc3c012849980195e732d3cf7cf04.stex"
+path="res://.import/AttackCursor.png-f13bb26e22c6fe651cc94be76777b907.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HUD/Image/Cursor/32x32/AttackCursor.png"
-dest_files=[ "res://.import/AttackCursor.png-79fbc3c012849980195e732d3cf7cf04.stex" ]
+source_file="res://HUD/Image/Cursor/AttackCursor.png"
+dest_files=[ "res://.import/AttackCursor.png-f13bb26e22c6fe651cc94be76777b907.stex" ]
 
 [params]
 

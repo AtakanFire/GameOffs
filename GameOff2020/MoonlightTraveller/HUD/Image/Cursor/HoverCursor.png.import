@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cursor.png-470c62eaadae6ebae04e0b5649d95048.stex"
+path="res://.import/HoverCursor.png-19160d8693c2c400be104bbcf3c60ef4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HUD/Image/Cursor/32x32/Cursor.png"
-dest_files=[ "res://.import/Cursor.png-470c62eaadae6ebae04e0b5649d95048.stex" ]
+source_file="res://HUD/Image/Cursor/HoverCursor.png"
+dest_files=[ "res://.import/HoverCursor.png-19160d8693c2c400be104bbcf3c60ef4.stex" ]
 
 [params]
 

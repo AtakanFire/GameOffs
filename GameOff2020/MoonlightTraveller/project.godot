@@ -25,7 +25,7 @@ settings/stdout/print_fps=true
 
 [display]
 
-mouse_cursor/custom_image="res://HUD/Image/Cursor/32x32/Cursor.png"
+mouse_cursor/custom_image="res://HUD/Image/Cursor/Cursor.png"
 
 [input]
 

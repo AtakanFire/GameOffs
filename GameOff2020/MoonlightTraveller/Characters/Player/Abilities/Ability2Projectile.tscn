@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.460396, 1 )
+colors = PoolColorArray( 1, 0, 0, 1, 0.831988, 0.509942, 0.209459, 1, 0.84375, 0.768836, 0.266968, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+width = 512
+
+[sub_resource type="ParticlesMaterial" id=3]
+lifetime_randomness = 0.13
+spread = 10.0
+flatness = 1.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+angular_velocity = 0.92
+scale_random = 0.57
+color_ramp = SubResource( 2 )
+hue_variation = 0.33
+hue_variation_random = 0.11
+
+[sub_resource type="SpatialMaterial" id=4]
+vertex_color_use_as_albedo = true
+params_diffuse_mode = 4
+metallic_specular = 1.0
+emission_enabled = true
+emission = Color( 0.835294, 0.243137, 0.243137, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+transmission_enabled = true
+transmission = Color( 0.419608, 0.419608, 0.419608, 1 )
+
+[sub_resource type="SphereMesh" id=5]
+material = SubResource( 4 )
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 8
+
+[node name="Ability2Projectile" type="Spatial"]
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( -1.62921e-07, 1, 0, 1.62921e-07, 2.65431e-14, -1, -1, -1.62921e-07, -1.62921e-07, 0, 0, 0 )
+emitting = false
+amount = 80
+one_shot = true
+speed_scale = 2.0
+visibility_aabb = AABB( -0.20001, -0.20001, -1.79018, 10.3377, 0.40002, 3.61305 )
+process_material = SubResource( 3 )
+draw_pass_1 = SubResource( 5 )

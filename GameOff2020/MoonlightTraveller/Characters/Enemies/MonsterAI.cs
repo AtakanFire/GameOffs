@@ -24,4 +24,22 @@ public class MonsterAI : Node
             GD.PrintErr("MonsterAI: Monster Model isn't valid!");
         } 
     }
+
+    public void _Monster_OnReachedToTarget(bool isReached)
+    {
+        monsterModel.animTree.Set("parameters/conditions/Bite", isReached);
+    }
+
+    public void _Monster_OnKilled()
+    {
+        monster.isDied = true;
+        monsterModel.animTree.Set("parameters/conditions/Death", true);
+        
+        Godot.Collections.Array monGroup = monster.GetGroups();
+        for (int i = 0; i < monGroup.Count; i++)
+        {
+            monster.RemoveFromGroup((string)monGroup[i]);
+        }
+    }
+
 }

@@ -12,14 +12,20 @@ public class Monster : KinematicBody
     private float acceptableRadius = 5.0f;
     [Export]
     private NodePath navigationPath = new NodePath("");
-
     
     [Export]
     // Monster Body Information
     private MonsterBody monsterBody = MonsterBody.Cyclops;
 
+    [Signal]
+    public delegate void OnReachedToTarget(bool isReached);
+    [Signal]
+    public delegate void OnKilled();
+
+    public bool isDied = false;
     public Spatial target;
     public Vector3 moveDirection = new Vector3();
+    public bool reachedToTarget = false;
 
     private float moveSpeed = 10f;
 
@@ -68,11 +74,36 @@ public class Monster : KinematicBody
     
     public void AutoFollowDecision(float delta)
     {
-        if (autoFollowTarget 
-        && pathIndex >= paths.Length 
-        && GlobalTransform.origin.DistanceTo(target.GlobalTransform.origin) > acceptableRadius)
+        if (IsInstanceValid(target))
         {
-            MoveTo(target);
+            if (autoFollowTarget && pathIndex >= paths.Length)
+            {
+                if (GlobalTransform.origin.DistanceTo(target.GlobalTransform.origin) > acceptableRadius)
+                {
+                    MoveTo(target);
+                    if (reachedToTarget)
+                    {
+                        EmitSignal(nameof(OnReachedToTarget), false);
+                    }
+                    reachedToTarget = false;
+                }
+                else
+                {
+                    if (!reachedToTarget)
+                    {
+                        EmitSignal(nameof(OnReachedToTarget), true);
+                    }
+                    reachedToTarget = true;
+                }
+            } 
+        }
+        else
+        {
+            if (reachedToTarget)
+            {
+                EmitSignal(nameof(OnReachedToTarget), false);
+            }
+            reachedToTarget = false;
         }
     }
 
@@ -111,5 +142,24 @@ public class Monster : KinematicBody
         paths = navigation.GetSimplePath(GlobalTransform.origin, _target.GlobalTransform.origin);
         pathIndex = 0;
     }
+    Timer timer = new Timer();
+
+    public void Kill()
+    {
+        if (!isDied)
+        {
+            EmitSignal(nameof(OnKilled));
+
+            AddChild(timer);
+            timer.Connect("timeout", this, "DestroySelf");
+            timer.Start(4.0f);
+        }
+    } 
+
+    public void DestroySelf()
+    {
+        QueueFree();
+    }
+
 
 }

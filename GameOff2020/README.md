@@ -55,10 +55,19 @@ Death
 	- Navigation(?Why work like that-Godot require a nav with mesh instance and meshes as a child) 
 		- NavigationMeshInstance
 			- EnvironmentModels
+			
+> Enemy(Character+AI+~Abilities)
+- Model+Anims
+- AnimTree
+- Collision~
+- AI
 
----
-- Enemy(Character+AI+~Abilities)
-	- Model+Anims
-	- AnimTree
-	- Collision~
-	- AI
+> Projectile
+- Particle
+
+> Scripts aren't organized, project needs to be refactor. :) 
+
+## Comment
+Current version needs multiple edits (batch edit). Because we can't create collisions for all selected meshes, we have to create collisions one by one. Also needs UI and UX improvements. (Eg. When mesh information is in one place, mesh actions are in camera. Also Anchor, Anim Tree needs invert anim condition)
+Pawn and character can be included to engine. 
+Too many 3d tools are missing. 

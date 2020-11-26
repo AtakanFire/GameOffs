@@ -1,9 +1,15 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=84 format=2]
 
 [ext_resource path="res://Characters/Player/CameraController.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Player/PlayerCharacter.cs" type="Script" id=2]
 [ext_resource path="res://Characters/Player/AnimationManager.cs" type="Script" id=3]
 [ext_resource path="res://Characters/Player/Abilities.cs" type="Script" id=4]
+[ext_resource path="res://HUD/Image/Cursor/iconCircle_brown.png" type="Texture" id=5]
+[ext_resource path="res://HUD/Image/Cursor/Cursor.png" type="Texture" id=6]
+[ext_resource path="res://HUD/Image/Cursor/iconCross_brown.png" type="Texture" id=7]
+[ext_resource path="res://HUD/Image/Cursor/AttackCursor.png" type="Texture" id=8]
+[ext_resource path="res://HUD/Image/Cursor/iconCheck_bronze.png" type="Texture" id=9]
+[ext_resource path="res://HUD/Image/Cursor/HoverCursor.png" type="Texture" id=10]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 2.0
@@ -3326,8 +3332,8 @@ states/RecieveHit/node = SubResource( 41 )
 states/RecieveHit/position = Vector2( -77, 232 )
 states/Roll/node = SubResource( 42 )
 states/Roll/position = Vector2( 588, 232 )
-states/Shoot_OneHanded/node = SubResource( 43 )
-states/Shoot_OneHanded/position = Vector2( 337, 433 )
+states/Shoot/node = SubResource( 43 )
+states/Shoot/position = Vector2( 337, 433 )
 states/SitDown/node = SubResource( 44 )
 states/SitDown/position = Vector2( 757, 331 )
 states/StandUp/node = SubResource( 45 )
@@ -3336,9 +3342,9 @@ states/SwordSlash/node = SubResource( 46 )
 states/SwordSlash/position = Vector2( -68, 433 )
 states/Victory/node = SubResource( 47 )
 states/Victory/position = Vector2( -77, 100 )
-transitions = [ "Idle-Run", "Jump", SubResource( 48 ), "Jump", "Idle-Run", SubResource( 49 ), "Idle-Run", "Roll", SubResource( 50 ), "Roll", "Idle-Run", SubResource( 51 ), "Idle-Run", "SitDown", SubResource( 52 ), "SitDown", "StandUp", SubResource( 53 ), "StandUp", "Idle-Run", SubResource( 54 ), "Idle-Run", "Defeat", SubResource( 55 ), "Defeat", "Idle-Run", SubResource( 56 ), "Idle-Run", "Victory", SubResource( 57 ), "Victory", "Idle-Run", SubResource( 58 ), "Idle-Run", "RecieveHit", SubResource( 59 ), "RecieveHit", "Idle-Run", SubResource( 60 ), "Idle-Run", "Punch", SubResource( 61 ), "Punch", "Idle-Run", SubResource( 62 ), "Idle-Run", "SwordSlash", SubResource( 63 ), "SwordSlash", "Idle-Run", SubResource( 64 ), "Idle-Run", "Death", SubResource( 65 ), "Death", "Idle-Run", SubResource( 66 ), "Idle-Run", "Shoot_OneHanded", SubResource( 67 ), "Shoot_OneHanded", "Idle-Run", SubResource( 68 ), "Idle-Run", "PickUp", SubResource( 69 ), "PickUp", "Carry", SubResource( 70 ), "Carry", "Idle-Run", SubResource( 71 ) ]
+transitions = [ "Idle-Run", "Jump", SubResource( 48 ), "Jump", "Idle-Run", SubResource( 49 ), "Idle-Run", "Roll", SubResource( 50 ), "Roll", "Idle-Run", SubResource( 51 ), "Idle-Run", "SitDown", SubResource( 52 ), "SitDown", "StandUp", SubResource( 53 ), "StandUp", "Idle-Run", SubResource( 54 ), "Idle-Run", "Defeat", SubResource( 55 ), "Defeat", "Idle-Run", SubResource( 56 ), "Idle-Run", "Victory", SubResource( 57 ), "Victory", "Idle-Run", SubResource( 58 ), "Idle-Run", "RecieveHit", SubResource( 59 ), "RecieveHit", "Idle-Run", SubResource( 60 ), "Idle-Run", "Punch", SubResource( 61 ), "Punch", "Idle-Run", SubResource( 62 ), "Idle-Run", "SwordSlash", SubResource( 63 ), "SwordSlash", "Idle-Run", SubResource( 64 ), "Idle-Run", "Death", SubResource( 65 ), "Death", "Idle-Run", SubResource( 66 ), "Idle-Run", "Shoot", SubResource( 67 ), "Shoot", "Idle-Run", SubResource( 68 ), "Idle-Run", "PickUp", SubResource( 69 ), "PickUp", "Carry", SubResource( 70 ), "Carry", "Idle-Run", SubResource( 71 ) ]
 start_node = "Idle-Run"
-graph_offset = Vector2( -44, 94 )
+graph_offset = Vector2( -168, 274 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=73]
 
@@ -3499,7 +3505,7 @@ material/4 = null
 material/5 = null
 
 [node name="RightHand" type="BoneAttachment" parent="PlayerModel/CharacterArmature"]
-transform = Transform( -0.895962, 0.374422, -0.238871, 0.0928312, 0.68384, 0.723702, 0.434319, 0.626236, -0.647453, -0.360918, 0.979504, 0.578829 )
+transform = Transform( -0.978754, -0.195607, 0.0614732, 0.0958357, -0.171379, 0.980533, -0.181263, 0.965592, 0.186484, -0.45009, 0.808963, -0.292149 )
 bone_name = "Fist.R"
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -3531,5 +3537,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0 )
 script = ExtResource( 4 )
 playerCharacterPath = NodePath("..")
 cameraPath = NodePath("../CameraController/SpringArm/Camera")
+animTreePath = NodePath("../AnimationTree")
+cursors = [ ExtResource( 6 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 7 ) ]
+rightHandPath = NodePath("../PlayerModel/CharacterArmature/RightHand")
 
 [editable path="CameraController"]
