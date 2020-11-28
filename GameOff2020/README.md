@@ -25,7 +25,7 @@ Kill the monsters with moonlight sonata(if its possible spawn them according mus
 ## Mechanic
 Walk/Run, jump basic locomotion.
 Target based attack system, directional attack, AoE damage, Quick Near AoE
-Monsters come to us and Attacking (maybe unique, maybe basic) 
+Monsters come to us and Attacking (~~maybe unique, maybe~~ basic) 
 Save the Rocket
 Carry resource to core and restore building
 ~~Learning skills with Music~~
@@ -70,4 +70,4 @@ Death
 ## Comment
 Current version needs multiple edits (batch edit). Because we can't create collisions for all selected meshes, we have to create collisions one by one. Also needs UI and UX improvements. (Eg. When mesh information is in one place, mesh actions are in camera. Also Anchor, Anim Tree needs invert anim condition)
 Pawn and character can be included to engine. 
-Too many 3d tools are missing. 
+Too many 3d tools(Landscape etc.) are missing. Needs more level design(Spatial Editor) hotkeys (Eg. Alt and move: duplicate and move spatial[duplicate and move actor in unreal]) 

@@ -56,7 +56,7 @@ public class CameraController : Spatial
             }
         } 
 
-        if (((Input.IsActionPressed("Character") || Input.IsActionPressed("Camera")) && mouseMovement.Length() >= 1)
+        if (((Input.IsActionPressed("Character") || Input.IsActionPressed("Camera")) && mouseMovement.Length() >= 4)
             || (Input.IsActionPressed("Character") && Input.IsActionPressed("Camera")))
         {
             Input.SetMouseMode(Input.MouseMode.Captured);

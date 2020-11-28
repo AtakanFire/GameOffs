@@ -40,6 +40,9 @@ public class Abilities : Node
     private StreamTexture[] cursors = new StreamTexture[0];
     [Export]
     private NodePath rightHandPath = new NodePath("");
+    [Export]
+    // Abilities[1,2,3]
+    public Vector3 abilityCooldowns = new Vector3();
 
 
     private Spatial playerCharacter;
@@ -57,6 +60,8 @@ public class Abilities : Node
     PackedScene ability2Effect = (PackedScene)ResourceLoader.Load("res://Characters/Player/Abilities/Ability2Projectile.tscn");
     PackedScene ability3Effect = (PackedScene)ResourceLoader.Load("res://Characters/Player/Abilities/Ability3Projectile.tscn");
     PackedScene projectileHitPack = (PackedScene)ResourceLoader.Load("res://Characters/Player/Abilities/ProjectileHit.tscn");
+
+    public float[] cooldowns = new float[3];
 
     public override void _Ready()
     {
@@ -126,9 +131,12 @@ public class Abilities : Node
                 Dictionary hit = RayCastFromMouse(eventMouseButton.Position);
                 if (hit.Contains("collider") && hit["collider"] is KinematicBody kinematicBody)
                 {
-                    autoAttack = true;
-                    selectedTarget = kinematicBody;
-                    AttackToTarget();
+                    if (kinematicBody.IsInGroup("Interactable"))
+                    {
+                        autoAttack = true;
+                        selectedTarget = kinematicBody;
+                        AttackToTarget();    
+                    }
                 }
             }
         }
@@ -160,6 +168,9 @@ public class Abilities : Node
                 }
             }
         }
+        cooldowns[0] = Mathf.Clamp(cooldowns[0] - delta, 0.0f, abilityCooldowns.x);
+        cooldowns[1] = Mathf.Clamp(cooldowns[1] - delta, 0.0f, abilityCooldowns.y);
+        cooldowns[2] = Mathf.Clamp(cooldowns[2] - delta, 0.0f, abilityCooldowns.z);
     }
 
     public Dictionary RayCastFromMouse(Vector2 mousePos, bool ignoreSelf = true)
@@ -230,81 +241,61 @@ public class Abilities : Node
         switch (attackType)
         {
             case AttackType.Basic:
-                if (IsInstanceValid(selectedTarget))
-                {
-                    playback.Travel("Shoot");
-                    if (selectedTarget is Monster mon)
-                    {
-                        Projectile basicAttack = (Projectile)basicAttackEffect.Instance();
-                        AddChild(basicAttack); 
-                        basicAttack.Transform = playerCharacter.Transform;
-                        basicAttack.target = selectedTarget;                        
-                    }
-                    else
-                    {
-                        GD.Print("ActAbility: Killed target isn't monster.");
-                        selectedTarget.QueueFree();
-                    }
-                }
+                BasicAttack();
                 break;
             case AttackType.Ability1:
-                Spatial ability1 = (Spatial)ability1Effect.Instance();
-                rightHand.AddChild(ability1); 
-                ability1.GetChild<Particles>(0).Emitting = true;
-                ability1.Transform = rightHand.Transform;
-                Godot.Collections.Array nMonster = GetTree().GetNodesInGroup("Monster");
-                for (int i = 0; i < nMonster.Count; i++)
-                {
-                    Monster mon = (Monster)nMonster[i];
-                    if (playerCharacter.Transform.origin.DistanceTo(mon.Transform.origin) < 10)
-                    {
-                        float angle = Mathf.Rad2Deg(playerCharacter.GlobalTransform.basis.z.AngleTo(playerCharacter.Transform.origin.DirectionTo(mon.Transform.origin).Normalized()));
-                        if (angle < 30)
-                        {
-                            Spatial projectileHit = (Spatial)projectileHitPack.Instance();
-                            mon.AddChild(projectileHit); 
-                            projectileHit.GlobalTransform = mon.GlobalTransform;
-                            projectileHit.GetChild<Particles>(0).Emitting = true;
-                            mon.Kill();
-                        }
-                    }
-                }
+                Ability1Attack();
             break;
             case AttackType.Ability2:
-            Spatial ability2 = (Spatial)ability2Effect.Instance();
-                rightHand.AddChild(ability2); 
-                ability2.GlobalTransform = rightHand.GlobalTransform;
-                ability2.GetChild<Particles>(0).Emitting = true;
-                Godot.Collections.Array nearMonster = GetTree().GetNodesInGroup("Monster");
-                for (int i = 0; i < nearMonster.Count; i++)
-                {
-                    Monster mon = (Monster)nearMonster[i];
-                    if (playerCharacter.Transform.origin.DistanceTo(mon.Transform.origin) < 20)
-                    {
-                        float angle = Mathf.Rad2Deg(playerCharacter.GlobalTransform.basis.z.AngleTo(playerCharacter.Transform.origin.DirectionTo(mon.Transform.origin).Normalized()));
-                        if (angle < 45)
-                        {
-                            Spatial projectileHit = (Spatial)projectileHitPack.Instance();
-                            mon.AddChild(projectileHit); 
-                            projectileHit.GlobalTransform = mon.GlobalTransform;
-                            projectileHit.GetChild<Particles>(0).Emitting = true;
-                            mon.Kill();
-                        }
-                    }
-                }
+                Ability2Attack();
             break;
             case AttackType.Ability3:
-                Godot.Collections.Array nearMonsters = GetTree().GetNodesInGroup("Monster");
-                Vector3 playerOrigin = playerCharacter.Transform.origin;
-                Spatial ability3 = (Spatial)ability3Effect.Instance();
-                AddChild(ability3); 
-                ability3.GetChild<Particles>(0).Emitting = true;
-                ability3.Transform = playerCharacter.Transform;
-                for (int i = 0; i < nearMonsters.Count; i++)
+                Ability3Attack();
+            break;
+            default:
+            break;
+        }
+
+    }
+
+    // Spawn Follower Projectile
+    private void BasicAttack() 
+    {
+        if (IsInstanceValid(selectedTarget))
+        {
+            playback.Travel("Shoot");
+            if (selectedTarget is Monster mon)
+            {
+                Projectile basicAttack = (Projectile)basicAttackEffect.Instance();
+                AddChild(basicAttack); 
+                basicAttack.Transform = playerCharacter.Transform;
+                basicAttack.target = selectedTarget;                        
+            }
+            else
+            {
+                GD.Print("ActAbility: Killed target isn't monster.");
+                selectedTarget.QueueFree();
+            }
+        }
+    }
+
+    private void Ability1Attack()
+    {
+        if (cooldowns[0] <= 0)
+        {
+            playback.Travel("Punch");
+            Spatial ability1 = (Spatial)ability1Effect.Instance();
+            rightHand.AddChild(ability1); 
+            ability1.GetChild<Particles>(0).Emitting = true;
+            ability1.Transform = rightHand.Transform;
+            Godot.Collections.Array nMonster = GetTree().GetNodesInGroup("Monster");
+            for (int i = 0; i < nMonster.Count; i++)
+            {
+                Monster mon = (Monster)nMonster[i];
+                if (playerCharacter.Transform.origin.DistanceTo(mon.Transform.origin) < 10)
                 {
-                    Monster mon = (Monster)nearMonsters[i];
-                    Vector3 nearMonsterOrigin  = mon.Transform.origin;
-                    if (playerOrigin.DistanceTo(nearMonsterOrigin) < 10)
+                    float angle = Mathf.Rad2Deg(playerCharacter.GlobalTransform.basis.z.AngleTo(playerCharacter.Transform.origin.DirectionTo(mon.Transform.origin).Normalized()));
+                    if (angle < 30)
                     {
                         Spatial projectileHit = (Spatial)projectileHitPack.Instance();
                         mon.AddChild(projectileHit); 
@@ -313,11 +304,69 @@ public class Abilities : Node
                         mon.Kill();
                     }
                 }
-            break;
-            default:
-            break;
+            }
+            cooldowns[0] = abilityCooldowns.x;
         }
+    }
 
+
+    private void Ability2Attack()
+    {
+        if (cooldowns[1] <= 0)
+        {
+            playback.Travel("Slash");
+            Spatial ability2 = (Spatial)ability2Effect.Instance();
+            rightHand.AddChild(ability2); 
+            ability2.GlobalTransform = rightHand.GlobalTransform;
+            ability2.GetChild<Particles>(0).Emitting = true;
+            Godot.Collections.Array nearMonster = GetTree().GetNodesInGroup("Monster");
+            for (int i = 0; i < nearMonster.Count; i++)
+            {
+                Monster mon = (Monster)nearMonster[i];
+                if (playerCharacter.Transform.origin.DistanceTo(mon.Transform.origin) < 20)
+                {
+                    float angle = Mathf.Rad2Deg((playerCharacter.GlobalTransform.basis.z.Rotated(playerCharacter.GlobalTransform.basis.y, -Mathf.Pi/2)).AngleTo(playerCharacter.Transform.origin.DirectionTo(mon.Transform.origin).Normalized()));
+                    if (angle < 120)
+                    {
+                        Spatial projectileHit = (Spatial)projectileHitPack.Instance();
+                        mon.AddChild(projectileHit); 
+                        projectileHit.GlobalTransform = mon.GlobalTransform;
+                        projectileHit.GetChild<Particles>(0).Emitting = true;
+                        mon.Kill();
+                    }
+                }
+            }
+            cooldowns[1] = abilityCooldowns.y;
+        }
+    }
+
+
+    private void Ability3Attack()
+    {
+        if (cooldowns[2] <= 0)
+        {
+            playback.Travel("Victory");
+            Godot.Collections.Array nearMonsters = GetTree().GetNodesInGroup("Monster");
+            Vector3 playerOrigin = playerCharacter.Transform.origin;
+            Spatial ability3 = (Spatial)ability3Effect.Instance();
+            AddChild(ability3); 
+            ability3.GetChild<Particles>(0).Emitting = true;
+            ability3.Transform = playerCharacter.Transform;
+            for (int i = 0; i < nearMonsters.Count; i++)
+            {
+                Monster mon = (Monster)nearMonsters[i];
+                Vector3 nearMonsterOrigin  = mon.Transform.origin;
+                if (playerOrigin.DistanceTo(nearMonsterOrigin) < 10)
+                {
+                    Spatial projectileHit = (Spatial)projectileHitPack.Instance();
+                    mon.AddChild(projectileHit); 
+                    projectileHit.GlobalTransform = mon.GlobalTransform;
+                    projectileHit.GetChild<Particles>(0).Emitting = true;
+                    mon.Kill();
+                }
+            }
+            cooldowns[2] = abilityCooldowns.z;
+        }
     }
 
 }

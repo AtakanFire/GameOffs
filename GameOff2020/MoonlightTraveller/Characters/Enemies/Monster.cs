@@ -7,9 +7,9 @@ public class Monster : KinematicBody
     [Export]
     private bool autoFollowTarget = true;    
     [Export]
-    private NodePath targetPath = new NodePath("");
-    [Export]
     private float acceptableRadius = 5.0f;
+    [Export]
+    private NodePath targetPath = new NodePath("");
     [Export]
     private NodePath navigationPath = new NodePath("");
     
@@ -34,28 +34,27 @@ public class Monster : KinematicBody
     private Vector3[] paths = new Vector3[0];
     private int pathIndex = 0;
 
+    private Timer timer = new Timer();
+
     public override void _Ready()
     {
         monsterModel = GetNode<MonsterModel>("./Model");
-        if (!IsInstanceValid(monsterModel))
-        {
-            GD.PrintErr("Monster: Monster Model isn't valid!");
-        } 
-        else
+        if (IsInstanceValid(monsterModel))
         {
             monsterModel.ChangeBody(monsterBody);
-        }
+        } 
 
-        navigation = GetNode<Navigation>(navigationPath);
-        if (!IsInstanceValid(navigation))
+        if (!navigationPath.IsEmpty())
         {
-            GD.PushWarning("Navigation can't found!");
+            navigation = GetNode<Navigation>(navigationPath);
         }
-
-        target = GetNode<Spatial>(targetPath);
-        if (IsInstanceValid(target))
+        if (!targetPath.IsEmpty())
         {
-            MoveTo(target);
+            target = GetNode<Spatial>(targetPath);
+            if (IsInstanceValid(target))
+            {
+                MoveTo(target);
+            }
         }
     }
 
@@ -139,10 +138,12 @@ public class Monster : KinematicBody
 
     public void MoveTo(Spatial _target)
     {   
-        paths = navigation.GetSimplePath(GlobalTransform.origin, _target.GlobalTransform.origin);
-        pathIndex = 0;
+        if (IsInstanceValid(navigation))
+        {
+            paths = navigation.GetSimplePath(GlobalTransform.origin, _target.GlobalTransform.origin);
+            pathIndex = 0;
+        }
     }
-    Timer timer = new Timer();
 
     public void Kill()
     {
@@ -159,6 +160,17 @@ public class Monster : KinematicBody
     public void DestroySelf()
     {
         QueueFree();
+    }
+
+    public void InitializeMonster(Spatial t, MonsterBody monBody, Navigation nav)
+    {
+        target = t;
+        if (IsInstanceValid(target))
+        {
+            MoveTo(target);
+        }
+        monsterModel.ChangeBody(monBody);
+        navigation = nav;
     }
 
 

@@ -35,10 +35,10 @@ public class AnimationManager : AnimationTree
     public override void _UnhandledInput(InputEvent inputEvent) 
     { 
         Set("parameters/conditions/Jump", inputEvent.IsActionPressed("Jump") && playerCharacter.IsOnFloor());
-        Set("parameters/conditions/Punch", inputEvent.IsActionPressed("Ability1"));
-        Set("parameters/conditions/Slash", inputEvent.IsActionPressed("Ability2"));
-        Set("parameters/conditions/Victory", inputEvent.IsActionPressed("Ability3"));
-        Set("parameters/conditions/Defeat", inputEvent.IsActionPressed("Ability3"));
+        // Set("parameters/conditions/Punch", inputEvent.IsActionPressed("Ability1"));
+        // Set("parameters/conditions/Slash", inputEvent.IsActionPressed("Ability2"));
+        // Set("parameters/conditions/Victory", inputEvent.IsActionPressed("Ability3"));
+        // // Set("parameters/conditions/Defeat", inputEvent.IsActionPressed("Ability3"));
         Set("parameters/conditions/Roll", inputEvent.IsActionPressed("Roll"));
         Set("parameters/conditions/Take", inputEvent.IsActionPressed("Interact"));
     }

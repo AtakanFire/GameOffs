@@ -1,9 +1,232 @@
-[gd_scene format=2]
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://HUD/Font/VT323-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://HUD/HUD.cs" type="Script" id=2]
+[ext_resource path="res://HUD/AbilityHUD.cs" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.141176, 0.14902, 0.168627, 0.627451 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_detail = 20
+shadow_size = 4
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.448598 )
+colors = PoolColorArray( 1, 0.539063, 0, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+width = 4
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.933333, 0.152941, 0.113725, 1 )
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0.481308 )
+colors = PoolColorArray( 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 5 )
+width = 4
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0.523364 )
+colors = PoolColorArray( 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+width = 4
+
+[sub_resource type="Gradient" id=9]
+offsets = PoolRealArray( 0.439252 )
+colors = PoolColorArray( 0, 0, 0, 0.784314 )
+
+[sub_resource type="GradientTexture" id=10]
+gradient = SubResource( 9 )
+width = 4
+
+[sub_resource type="DynamicFont" id=11]
+size = 24
+extra_spacing_char = 4
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.819608, 0.572549, 0.0627451, 1 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.811765, 0.831373, 0.207843, 1 )
 
 [node name="HUD" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchor_left = 0.4
+anchor_right = 0.6
+anchor_bottom = 0.02
+margin_bottom = 14.0
+hint_tooltip = "Space Shuttle Repair Progress"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Abilities" type="Panel" parent="."]
+anchor_left = 0.45
+anchor_top = 1.0
+anchor_right = 0.55
+anchor_bottom = 1.0
+margin_left = -9.99997
+margin_top = -30.0
+margin_right = 10.0
+grow_horizontal = 2
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ability1" type="TextureButton" parent="Abilities"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -45.4
+margin_top = -30.0
+margin_right = -15.4
+hint_tooltip = "Dragon's Breath"
+texture_hover = SubResource( 3 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Panel1" type="Panel" parent="Abilities/Ability1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cooldown" type="TextureProgress" parent="Abilities/Ability1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+value = 80.0
+texture_under = SubResource( 6 )
+texture_over = SubResource( 8 )
+texture_progress = SubResource( 10 )
+fill_mode = 3
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Abilities/Ability1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 11 )
+text = "1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ability2" type="TextureButton" parent="Abilities"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -15.0
+margin_top = -30.0
+margin_right = 15.0
+hint_tooltip = "Sword Slash"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Panel2" type="Panel" parent="Abilities/Ability2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cooldown" type="TextureProgress" parent="Abilities/Ability2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+value = 40.0
+texture_under = SubResource( 6 )
+texture_over = SubResource( 8 )
+texture_progress = SubResource( 10 )
+fill_mode = 3
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Abilities/Ability2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 11 )
+text = "2"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ability3" type="TextureButton" parent="Abilities"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = -30.0
+margin_right = 45.0
+hint_tooltip = "Rain of Fire"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel3" type="Panel" parent="Abilities/Ability3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cooldown" type="TextureProgress" parent="Abilities/Ability3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+value = 40.0
+texture_under = SubResource( 6 )
+texture_over = SubResource( 8 )
+texture_progress = SubResource( 10 )
+fill_mode = 3
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Abilities/Ability3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 11 )
+text = "3"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -31,11 +31,14 @@ public class MusicScorePlayer : AudioStreamPlayer
     [Export]
     // Score and music sync take time so unused
     private bool UseScore = false;
+    [Export]
+    // Using only voice one
+    private bool UseOnlyFirstVoice = true;
 
     [Export(PropertyHint.Dir, "")]
     private String scoreDir = "res://Audio/Beethoven-MoonlightSonata.json";
     [Export]
-    private float timeAccurancy = 0.01f; // This must be calculate with tempo and etc.
+    private float timeAccurancy = 0.0063f; // This must be calculate with tempo and etc.
     private Array<Timer> timers;
  
     private Godot.Collections.Array allObject;
@@ -43,7 +46,7 @@ public class MusicScorePlayer : AudioStreamPlayer
     
     public override void _Ready()
     {
-        if (UseScore)
+        if (UseScore && AutoPlay)
         {
             ReadScore();
         }
@@ -57,15 +60,13 @@ public class MusicScorePlayer : AudioStreamPlayer
     {
 
     }
+
     public override void _UnhandledInput(InputEvent inputEvent)
     {
-        if (UseScore)
+        if (UseScore && inputEvent.IsActionPressed("Jump"))
         {
-            if (inputEvent.IsActionPressed("Jump"))
-            {
-                Play();
-                ActMusic();
-            }
+            Play();
+            ActMusic();
         }
     }
 
@@ -106,12 +107,32 @@ public class MusicScorePlayer : AudioStreamPlayer
         // {
         //     timers.Insert(GetMusicsNote().voice, CreateTimer());
         // } 
-        
-        timers[GetMusicsNote().voice].Stop();
-        GD.Print(GetMusicsNote().ToNoteString());
-        noteIndex++;
 
-        timers[GetMusicsNote().voice].Start(GetMusicsNote().duration * timeAccurancy);
+        if (UseOnlyFirstVoice)
+        {
+            int forcedVoice = 1;
+            if (GetMusicsNote().voice != forcedVoice)
+            {
+                noteIndex++;
+                timers[forcedVoice].Start(GetMusicsNote().duration * timeAccurancy);
+            }
+            else
+            {
+                timers[forcedVoice].Stop();
+                GD.Print(GetMusicsNote().ToNoteString());
+                noteIndex++;
+                timers[forcedVoice].Start(GetMusicsNote().duration * timeAccurancy);
+            }
+        }
+        else
+        {
+            timers[GetMusicsNote().voice].Stop();
+            GD.Print(GetMusicsNote().ToNoteString());
+            noteIndex++;
+
+            timers[GetMusicsNote().voice].Start(GetMusicsNote().duration * timeAccurancy);
+        }
+
     }
 
     private MusicNote GetMusicsNote()

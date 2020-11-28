@@ -4,7 +4,7 @@
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.460396, 1 )
-colors = PoolColorArray( 0.769043, 0.255346, 0.255346, 1, 0.831988, 0.509942, 0.209459, 1, 0.905762, 0.808339, 0.155678, 1 )
+colors = PoolColorArray( 0.464844, 0.352718, 0.0871582, 1, 0.835938, 0.62985, 0.437561, 1, 1, 0.75, 0, 1 )
 
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )
@@ -20,15 +20,10 @@ radial_accel = 2.0
 radial_accel_random = 0.08
 scale_random = 0.57
 color_ramp = SubResource( 2 )
-hue_variation = 0.04
-hue_variation_random = 0.11
 
 [sub_resource type="SpatialMaterial" id=4]
+flags_unshaded = true
 vertex_color_use_as_albedo = true
-params_diffuse_mode = 4
-metallic_specular = 1.0
-transmission_enabled = true
-transmission = Color( 0.419608, 0.419608, 0.419608, 1 )
 
 [sub_resource type="SphereMesh" id=5]
 material = SubResource( 4 )
@@ -42,6 +37,8 @@ script = ExtResource( 1 )
 moveSpeed = 15.0
 
 [node name="Particles" type="Particles" parent="."]
+amount = 16
+speed_scale = 2.0
 explosiveness = 0.1
 randomness = 0.09
 process_material = SubResource( 3 )
