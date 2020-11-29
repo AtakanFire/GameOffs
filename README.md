@@ -29,8 +29,6 @@ Game Off projects repositories will be here...
 
 ## Game Offs
 
-***
-
 ### Game Off 2020
 
 <img src="./GameOff2020/Resources/MoonlightTraveller.png" alt="Moonlight Traveller" width="200"/>
