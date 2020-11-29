@@ -1,9 +1,11 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://HUD/Font/VT323-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://HUD/HUD.cs" type="Script" id=2]
 [ext_resource path="res://HUD/AbilityHUD.cs" type="Script" id=3]
 [ext_resource path="res://HUD/Font/Font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://HUD/Font/SyneMono-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://MoonlightTraveller.png" type="Texture" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.172549, 0.172549, 0.176471, 1 )
@@ -67,6 +69,123 @@ bg_color = Color( 0.819608, 0.572549, 0.0627451, 1 )
 
 [sub_resource type="StyleBoxFlat" id=15]
 bg_color = Color( 0.811765, 0.831373, 0.207843, 1 )
+
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.8, 0.8, 0.8, 0.313726 )
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="DynamicFont" id=18]
+size = 36
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+extra_spacing_char = 1
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 28
+use_mipmaps = true
+use_filter = true
+extra_spacing_char = 1
+font_data = ExtResource( 5 )
+
+[sub_resource type="Animation" id=19]
+resource_name = "FadeOut"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("MoonlightTraveller:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.392157, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3, 0.5, 2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("MoonlightTraveller:modulate:b")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3, 0.5, 2 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("MoonlightTraveller:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3, 0.5, 2 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("MoonlightTraveller:modulate:r")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3, 0.5, 2 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("MoonlightTraveller:rect_position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 312, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.5 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("MoonlightTraveller:rect_position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 100, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.5 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("MoonlightTraveller:rect_size:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = false
+tracks/6/keys = {
+"points": PoolRealArray( 400, -0.25, 0, 0.25, 0, 400, -0.25, 0, 0.25, 0, 40, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1.5 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("MoonlightTraveller:rect_size:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = false
+tracks/7/keys = {
+"points": PoolRealArray( 400, -0.25, 0, 0.25, 0, 400, -0.25, 0, 0.25, 0, 40, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1.5 )
+}
 
 [node name="HUD" type="Control"]
 anchor_right = 1.0
@@ -277,3 +396,86 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MoonlightTraveller" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0.449752 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -209.325
+margin_top = -202.989
+margin_right = 190.675
+margin_bottom = 197.011
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Panel" parent="MoonlightTraveller"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="TextureRect" parent="MoonlightTraveller"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="MoonlightTraveller"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 18 )
+text = "  Moonlight
+        Traveller"
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopupDialog" type="PopupDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -60.0
+margin_right = 200.0
+margin_bottom = 60.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Launch" type="Button" parent="PopupDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PopupDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 16 )
+text = "Space Shuttle Launched!
+Thanks for Playing"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "FadeOut"
+anims/FadeOut = SubResource( 19 )
+[connection signal="button_down" from="PopupDialog/Launch" to="." method="_on_LaunchDown"]

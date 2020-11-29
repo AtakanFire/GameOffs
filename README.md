@@ -1,7 +1,7 @@
 # GameOffs
 Game Off projects repositories will be here...
 
-**Game Off:** Creating games in **about 30 days** with *open source tools*. About 3-5 days in reality. 
+**Game Off:** Creating *open source games* in **about 30 days**. About 3-5 days in reality. 
 
 ## License
 **Project Licenses:** GameOff Projects and this repositories under [MIT](./LICENSE). 
@@ -20,13 +20,11 @@ Game Off projects repositories will be here...
 * [Inkscape](https://inkscape.org/)
 * [MuseScore](https://musescore.org/)
 * [Audacity](https://www.audacityteam.org/)
-* [Git/Github](https://github.com)
-
-#### Other Tools
 * [MakeHuman](http://www.makehumancommunity.org/)
 * [LMMS](https://lmms.io/)
 * [GIMP](https://www.gimp.org/)
 * [Twine](https://twinery.org/)
+* [Git/Github](https://github.com)
 
 
 ## Game Offs
@@ -35,11 +33,11 @@ Game Off projects repositories will be here...
 
 ### Game Off 2020
 
-<!-- <img src="./GameOff2020/Resources/MoonlightTraveller.png" alt="Moonlight Traveller" width="200"/> -->
+<img src="./GameOff2020/Resources/MoonlightTraveller.png" alt="Moonlight Traveller" width="200"/>
 
 * **Theme**: *MOONSHOT*
 * **Name**: *[Moonlight Traveller](./GameOff2020)*
-* **Description**: **
+* **Description**: *Kill the monsters until the "Moonlight Sonata" is over*
 * **Tools**: *Godot (v3.2.3.mono), Blender (v2.83 & v2.90) + Addon(Godot Blender Exporter)*
 * **Comment**: Although Godot has nice features, it still has a long way to go. I was busy this month.
 * **ThirdParty**: [ThirdParty](./GameOff2020/Resources/ThirdParty.md)

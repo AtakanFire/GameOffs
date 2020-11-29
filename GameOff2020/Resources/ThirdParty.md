@@ -23,3 +23,7 @@ https://www.kenney.nl/assets
 https://fonts.google.com/
 * Game Logo: Syne_Mono
 * Game Font: VT323
+
+### Hdrihaven
+https://hdrihaven.com/
+

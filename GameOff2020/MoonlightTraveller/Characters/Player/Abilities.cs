@@ -111,6 +111,17 @@ public class Abilities : Node
         {
             ActAbility(AttackType.Ability3);
         }
+        if (inputEvent.IsActionPressed("Interact"))
+        {
+            Spatial nearlestSpatial = NearlestSpatial();
+            if (IsInstanceValid(nearlestSpatial))
+            {
+                if (nearlestSpatial is Item item)
+                {
+                    item.Taken();
+                }
+            }
+        }
     }
 
 

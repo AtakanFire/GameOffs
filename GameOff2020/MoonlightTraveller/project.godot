@@ -17,7 +17,8 @@ _global_script_class_icons={
 
 config/name="MoonlightTraveller"
 run/main_scene="res://Level/Level.tscn"
-config/icon="res://icon.png"
+config/icon="res://MoonlightTraveller64x64.png"
+config/windows_native_icon="res://MoonlightTraveller32x32.ico"
 
 [debug]
 

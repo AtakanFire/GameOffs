@@ -39,8 +39,11 @@ public class MusicScorePlayer : AudioStreamPlayer
     private String scoreDir = "res://Audio/Beethoven-MoonlightSonata.json";
     [Export]
     private float timeAccurancy = 0.0063f; // This must be calculate with tempo and etc.
+    [Export]
+    private bool cheat = false;
+
+
     private Array<Timer> timers;
- 
     private Godot.Collections.Array allObject;
     private int noteIndex = 0;
     
@@ -67,6 +70,14 @@ public class MusicScorePlayer : AudioStreamPlayer
         {
             Play();
             ActMusic();
+        }
+        if (cheat && inputEvent.IsActionPressed("ui_home"))
+        {
+            Seek(0.0f); // Restart
+        }
+        else if (cheat && inputEvent.IsActionPressed("ui_end"))
+        {
+            Seek(800.0f); // Near to end
         }
     }
 

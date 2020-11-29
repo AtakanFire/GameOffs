@@ -22,7 +22,8 @@ public class HUD : Control
     private AbilityHUD abilitybtn2;
     private AbilityHUD abilitybtn3;
     
-
+    private Popup popup;
+     
     private bool playOver = false;
 
 
@@ -55,6 +56,7 @@ public class HUD : Control
         {
             GD.PrintErr("HUD: attributes isn't valid!");
         }
+        popup = GetNode<Popup>("./PopupDialog");
     }
 
     public override void _Process(float delta)
@@ -62,9 +64,12 @@ public class HUD : Control
         if (IsInstanceValid(musicPlayer) && !playOver)
         {
             progress.Value = (musicPlayer.GetPlaybackPosition() / 817.0f) * 100; // 817.96s ~818s hardcoded(cant find GetMusicLenght)
-            if (progress.Value == 0.999f)
+            if (progress.Value > 99.9f)
             {
+                musicPlayer.Stop();
+                progress.Value = 100.0f;
                 playOver = true;
+                popup.Show();
             }
         }
         if (IsInstanceValid(abilities))
@@ -77,5 +82,10 @@ public class HUD : Control
         {
             health.Text = "%" + attributes.health;
         }
+    }
+
+    public void _on_LaunchDown()
+    {
+        GetTree().Quit();
     }
 }

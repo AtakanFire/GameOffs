@@ -48,6 +48,5 @@ public class ItemSpawner : Spatial
             item.Transform = spawnPoints[randomNumber.RandiRange(0, spawnPoints.Count-1)].Transform;
         }
         timer.Start(randomNumber.RandiRange(spawnRate/2, spawnRate));
-        GD.Print("Spawner");
     }
 }
