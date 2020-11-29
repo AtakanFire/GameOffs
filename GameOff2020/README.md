@@ -5,30 +5,30 @@
 
 ## Gameplay
 
-* Save the core...
+* Live until Space Shuttle launch with "Moonlight Sonata", when music slow, take notes(parchments​) and gain your health(with music).​
 * Keys:
   * Movement: W, A, S, D 
   * Space: Jump
-  * Q: Roll
-  * Punch: 1
-  * Slash: 2
-  * Shoot: 3
+  * Dragon's Breath: 1
+  * Sword Slash: 2
+  * Rain of Fire: 3
   * Target: Tab
-  * Menu: Esc
+  * Interact: E
+  * Q: Roll
 
 ***
 
 # Game Design 
 ## Story
 Monsters have taken over the world. And you are the last one who wants to go to the moon.
-Kill the monsters with moonlight sonata ~~and spawn them according music.~~).
+Kill the monsters with moonlight sonata ~~and spawn them according music~~.
 ## Mechanic
 * Walk/Run, jump basic locomotion.
 * Target based attack system, directional attack, AoE damage, Quick Near AoE
-* Monsters come to us and Attacking (~~maybe unique, maybe~~ basic) 
-* Save the character  <-  Save the Rocket
-* Live until Space shuttle launch  <-  ~~Carry resource to core and restore building~~
-* Health is the speed of music.  <-  ~~Learning skills with Music~~ ~Reborn with automaticly~~
+* Monsters come to us and basic attack
+* Save the character
+* Live until Space shuttle launch
+* Health is the speed of music.
 * When music completed level passed and congratulations
 ## Score
 Killed Enemy Count

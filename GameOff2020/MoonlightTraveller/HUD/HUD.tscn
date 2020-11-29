@@ -70,7 +70,7 @@ bg_color = Color( 0.819608, 0.572549, 0.0627451, 1 )
 [sub_resource type="StyleBoxFlat" id=15]
 bg_color = Color( 0.811765, 0.831373, 0.207843, 1 )
 
-[sub_resource type="StyleBoxFlat" id=17]
+[sub_resource type="StyleBoxFlat" id=16]
 bg_color = Color( 0.145098, 0.145098, 0.164706, 1 )
 border_width_left = 4
 border_width_top = 4
@@ -87,7 +87,7 @@ expand_margin_right = 4.0
 expand_margin_top = 4.0
 expand_margin_bottom = 4.0
 
-[sub_resource type="DynamicFont" id=18]
+[sub_resource type="DynamicFont" id=17]
 size = 36
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
@@ -96,7 +96,7 @@ use_filter = true
 extra_spacing_char = 1
 font_data = ExtResource( 5 )
 
-[sub_resource type="DynamicFont" id=16]
+[sub_resource type="DynamicFont" id=18]
 size = 28
 use_mipmaps = true
 use_filter = true
@@ -416,7 +416,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-custom_styles/panel = SubResource( 17 )
+custom_styles/panel = SubResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -435,7 +435,7 @@ __meta__ = {
 [node name="Title" type="Label" parent="MoonlightTraveller"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 17 )
 text = "  Moonlight
         Traveller"
 valign = 2
@@ -466,7 +466,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="PopupDialog"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 18 )
 text = "Space Shuttle Launched!
 Thanks for Playing"
 align = 1
