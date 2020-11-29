@@ -11,6 +11,7 @@ http://quaternius.com/
 * Ultimate Animated Character Pack
 * Cute Animated Monsters
 * Textured Tree Pack
+* Ultimate RPG Items Pack
 
 ### Kenney
 https://www.kenney.nl/assets

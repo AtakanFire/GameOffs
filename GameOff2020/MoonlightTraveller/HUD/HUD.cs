@@ -7,15 +7,21 @@ public class HUD : Control
     private NodePath MusicScorePlayerPath = new NodePath();
     [Export]
     private NodePath abilitiesPath = new NodePath();
+    [Export]
+    private NodePath attributesPath = new NodePath();
 
     public MusicScorePlayer musicPlayer;
     public Abilities abilities;
+    public PlayerAttributes attributes;
 
     private ProgressBar progress;
+
+    private Label health;
 
     private AbilityHUD abilitybtn1;
     private AbilityHUD abilitybtn2;
     private AbilityHUD abilitybtn3;
+    
 
     private bool playOver = false;
 
@@ -36,11 +42,18 @@ public class HUD : Control
         abilitybtn1 = GetNode<AbilityHUD>("./Abilities/Ability1");
         abilitybtn2 = GetNode<AbilityHUD>("./Abilities/Ability2");
         abilitybtn3 = GetNode<AbilityHUD>("./Abilities/Ability3");
+
+        health = GetNode<Label>("./HealthBackground/Health");
         
         abilities = GetNode<Abilities>(abilitiesPath);
         if (!IsInstanceValid(abilities))
         {
             GD.PrintErr("HUD: abilities isn't valid!");
+        }
+        attributes = GetNode<PlayerAttributes>(attributesPath);
+        if (!IsInstanceValid(attributes))
+        {
+            GD.PrintErr("HUD: attributes isn't valid!");
         }
     }
 
@@ -59,6 +72,10 @@ public class HUD : Control
             abilitybtn1.cooldownProgress.Value = (abilities.cooldowns[0] / abilities.abilityCooldowns.x)*100;
             abilitybtn2.cooldownProgress.Value = (abilities.cooldowns[1] / abilities.abilityCooldowns.y)*100;
             abilitybtn3.cooldownProgress.Value = (abilities.cooldowns[2] / abilities.abilityCooldowns.z)*100;
+        }
+        if (IsInstanceValid(health))
+        {
+            health.Text = "%" + attributes.health;
         }
     }
 }

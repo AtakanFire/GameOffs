@@ -21,19 +21,17 @@
 # Game Design 
 ## Story
 Monsters have taken over the world. And you are the last one who wants to go to the moon.
-Kill the monsters with moonlight sonata(if its possible spawn them according music: Ignored, there is no time.).
+Kill the monsters with moonlight sonata ~~and spawn them according music.~~).
 ## Mechanic
-Walk/Run, jump basic locomotion.
-Target based attack system, directional attack, AoE damage, Quick Near AoE
-Monsters come to us and Attacking (~~maybe unique, maybe~~ basic) 
-Save the Rocket
-Carry resource to core and restore building
-~~Learning skills with Music~~
-~Reborn with automaticly
-When music completed level passed and congratulations
+* Walk/Run, jump basic locomotion.
+* Target based attack system, directional attack, AoE damage, Quick Near AoE
+* Monsters come to us and Attacking (~~maybe unique, maybe~~ basic) 
+* Save the character  <-  Save the Rocket
+* Live until Space shuttle launch  <-  ~~Carry resource to core and restore building~~
+* Health is the speed of music.  <-  ~~Learning skills with Music~~ ~Reborn with automaticly~~
+* When music completed level passed and congratulations
 ## Score
 Killed Enemy Count
-Death
 
 ***
 

@@ -19,6 +19,7 @@ public class MonsterSpawner : Spatial
     Godot.Collections.Array<Position3D> spawnPoints = new Godot.Collections.Array<Position3D>(); 
     private RandomNumberGenerator randomNumber = new RandomNumberGenerator();
     private Timer timer = new Timer();
+    private int wave = 1;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -73,6 +74,4 @@ public class MonsterSpawner : Spatial
         }
         timer.Start(randomNumber.RandiRange((int)spawnRate.x, (int)spawnRate.y));
     }
-
-
 }

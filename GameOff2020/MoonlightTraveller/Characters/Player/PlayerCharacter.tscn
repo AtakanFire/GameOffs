@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=2]
+[gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://Characters/Player/CameraController.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Player/PlayerCharacter.cs" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://HUD/Image/Cursor/AttackCursor.png" type="Texture" id=8]
 [ext_resource path="res://HUD/Image/Cursor/iconCheck_bronze.png" type="Texture" id=9]
 [ext_resource path="res://HUD/Image/Cursor/HoverCursor.png" type="Texture" id=10]
+[ext_resource path="res://Characters/Player/PlayerAttributes.cs" type="Script" id=11]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 2.0
@@ -3197,10 +3198,10 @@ animation = "Shoot_OneHanded"
 [sub_resource type="AnimationNodeAnimation" id=44]
 animation = "SitDown"
 
-[sub_resource type="AnimationNodeAnimation" id=46]
+[sub_resource type="AnimationNodeAnimation" id=45]
 animation = "SwordSlash"
 
-[sub_resource type="AnimationNodeAnimation" id=45]
+[sub_resource type="AnimationNodeAnimation" id=46]
 animation = "StandUp"
 
 [sub_resource type="AnimationNodeAnimation" id=47]
@@ -3336,9 +3337,9 @@ states/Shoot/node = SubResource( 43 )
 states/Shoot/position = Vector2( 337, 433 )
 states/SitDown/node = SubResource( 44 )
 states/SitDown/position = Vector2( 757, 331 )
-states/Slash/node = SubResource( 46 )
+states/Slash/node = SubResource( 45 )
 states/Slash/position = Vector2( -68, 433 )
-states/StandUp/node = SubResource( 45 )
+states/StandUp/node = SubResource( 46 )
 states/StandUp/position = Vector2( 610, 445 )
 states/Victory/node = SubResource( 47 )
 states/Victory/position = Vector2( -77, 100 )
@@ -3443,7 +3444,7 @@ bones/16/name = "Fist.R"
 bones/16/parent = 15
 bones/16/rest = Transform( 0.999252, -0.0362167, 0.0135389, 0.0365448, 0.999024, -0.024831, -0.0126264, 0.0253072, 0.9996, 7.45058e-09, 1.35722e-07, -0.425347 )
 bones/16/enabled = true
-bones/16/bound_children = [ NodePath("RightHand") ]
+bones/16/bound_children = [  ]
 bones/17/name = "UpperLeg.L"
 bones/17/parent = 3
 bones/17/rest = Transform( 0.999806, -0.000618905, -0.0196494, -0.0026224, -0.994718, -0.102441, -0.0194828, 0.102473, -0.994545, 0.253029, -0.0559237, 0.016702 )
@@ -3505,7 +3506,7 @@ material/4 = null
 material/5 = null
 
 [node name="RightHand" type="BoneAttachment" parent="PlayerModel/CharacterArmature"]
-transform = Transform( -0.910458, 0.348303, -0.223049, 0.075125, 0.669578, 0.738933, 0.406721, 0.656011, -0.635789, -0.370563, 0.947375, 0.552545 )
+transform = Transform( -0.978932, -0.1761, 0.103339, 0.104318, 0.00371594, 0.994537, -0.175522, 0.984366, 0.0147329, -0.469552, 0.835912, -0.13616 )
 bone_name = "Fist.R"
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -3541,5 +3542,8 @@ animTreePath = NodePath("../AnimationTree")
 cursors = [ ExtResource( 6 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 7 ) ]
 rightHandPath = NodePath("../PlayerModel/CharacterArmature/RightHand")
 abilityCooldowns = Vector3( 2, 4, 8 )
+
+[node name="Attributes" type="Node" parent="."]
+script = ExtResource( 11 )
 
 [editable path="CameraController"]

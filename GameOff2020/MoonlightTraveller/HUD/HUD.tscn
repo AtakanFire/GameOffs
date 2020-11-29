@@ -1,37 +1,40 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://HUD/Font/VT323-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://HUD/HUD.cs" type="Script" id=2]
 [ext_resource path="res://HUD/AbilityHUD.cs" type="Script" id=3]
+[ext_resource path="res://HUD/Font/Font.tres" type="DynamicFont" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.172549, 0.172549, 0.176471, 1 )
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.219608, 0.211765, 0.227451, 1 )
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.141176, 0.14902, 0.168627, 0.627451 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_detail = 20
 shadow_size = 4
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=4]
 offsets = PoolRealArray( 0.448598 )
 colors = PoolColorArray( 1, 0.539063, 0, 1 )
 
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
 width = 4
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.933333, 0.152941, 0.113725, 1 )
 
-[sub_resource type="Gradient" id=5]
-offsets = PoolRealArray( 0.481308 )
-colors = PoolColorArray( 0, 0, 0, 0 )
-
-[sub_resource type="GradientTexture" id=6]
-gradient = SubResource( 5 )
-width = 4
-
 [sub_resource type="Gradient" id=7]
-offsets = PoolRealArray( 0.523364 )
+offsets = PoolRealArray( 0.481308 )
 colors = PoolColorArray( 0, 0, 0, 0 )
 
 [sub_resource type="GradientTexture" id=8]
@@ -39,22 +42,30 @@ gradient = SubResource( 7 )
 width = 4
 
 [sub_resource type="Gradient" id=9]
-offsets = PoolRealArray( 0.439252 )
-colors = PoolColorArray( 0, 0, 0, 0.784314 )
+offsets = PoolRealArray( 0.523364 )
+colors = PoolColorArray( 0, 0, 0, 0 )
 
 [sub_resource type="GradientTexture" id=10]
 gradient = SubResource( 9 )
 width = 4
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="Gradient" id=11]
+offsets = PoolRealArray( 0.439252 )
+colors = PoolColorArray( 0, 0, 0, 0.784314 )
+
+[sub_resource type="GradientTexture" id=12]
+gradient = SubResource( 11 )
+width = 4
+
+[sub_resource type="DynamicFont" id=13]
 size = 24
 extra_spacing_char = 4
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=12]
+[sub_resource type="StyleBoxFlat" id=14]
 bg_color = Color( 0.819608, 0.572549, 0.0627451, 1 )
 
-[sub_resource type="StyleBoxFlat" id=13]
+[sub_resource type="StyleBoxFlat" id=15]
 bg_color = Color( 0.811765, 0.831373, 0.207843, 1 )
 
 [node name="HUD" type="Control"]
@@ -62,6 +73,42 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthBackground" type="Panel" parent="."]
+anchor_left = 0.45
+anchor_right = 0.55
+margin_left = 3.05176e-05
+margin_top = 25.0
+margin_bottom = 50.0
+hint_tooltip = "Health"
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthBackground2" type="Panel" parent="HealthBackground"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_right = -1.0
+margin_bottom = -1.0
+hint_tooltip = "Health"
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="Label" parent="HealthBackground"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "Health"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -85,7 +132,7 @@ margin_left = -9.99997
 margin_top = -30.0
 margin_right = 10.0
 grow_horizontal = 2
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -99,7 +146,7 @@ margin_left = -45.4
 margin_top = -30.0
 margin_right = -15.4
 hint_tooltip = "Dragon's Breath"
-texture_hover = SubResource( 3 )
+texture_hover = SubResource( 5 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false,
@@ -109,7 +156,7 @@ __meta__ = {
 [node name="Panel1" type="Panel" parent="Abilities/Ability1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -118,9 +165,9 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 value = 80.0
-texture_under = SubResource( 6 )
-texture_over = SubResource( 8 )
-texture_progress = SubResource( 10 )
+texture_under = SubResource( 8 )
+texture_over = SubResource( 10 )
+texture_progress = SubResource( 12 )
 fill_mode = 3
 nine_patch_stretch = true
 __meta__ = {
@@ -130,7 +177,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="Abilities/Ability1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 13 )
 text = "1"
 align = 1
 valign = 1
@@ -156,7 +203,7 @@ __meta__ = {
 [node name="Panel2" type="Panel" parent="Abilities/Ability2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 12 )
+custom_styles/panel = SubResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -165,9 +212,9 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 value = 40.0
-texture_under = SubResource( 6 )
-texture_over = SubResource( 8 )
-texture_progress = SubResource( 10 )
+texture_under = SubResource( 8 )
+texture_over = SubResource( 10 )
+texture_progress = SubResource( 12 )
 fill_mode = 3
 nine_patch_stretch = true
 __meta__ = {
@@ -177,7 +224,7 @@ __meta__ = {
 [node name="Label2" type="Label" parent="Abilities/Ability2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 13 )
 text = "2"
 align = 1
 valign = 1
@@ -202,7 +249,7 @@ __meta__ = {
 [node name="Panel3" type="Panel" parent="Abilities/Ability3"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 13 )
+custom_styles/panel = SubResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -211,9 +258,9 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 value = 40.0
-texture_under = SubResource( 6 )
-texture_over = SubResource( 8 )
-texture_progress = SubResource( 10 )
+texture_under = SubResource( 8 )
+texture_over = SubResource( 10 )
+texture_progress = SubResource( 12 )
 fill_mode = 3
 nine_patch_stretch = true
 __meta__ = {
@@ -223,7 +270,7 @@ __meta__ = {
 [node name="Label3" type="Label" parent="Abilities/Ability3"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 13 )
 text = "3"
 align = 1
 valign = 1

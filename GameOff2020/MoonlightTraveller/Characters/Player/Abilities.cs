@@ -138,6 +138,13 @@ public class Abilities : Node
                         AttackToTarget();    
                     }
                 }
+                else if(hit.Contains("collider") && hit["collider"] is Item item)
+                {
+                    if (item.IsInGroup("Interactable"))
+                    {
+                        item.Taken();
+                    }
+                }
             }
         }
         if (inputEvent is InputEventMouseMotion)
@@ -160,7 +167,7 @@ public class Abilities : Node
                     SetCustomCursorShape(CustomCursorShape.Attack);
                 }
             }
-            else if (hit["collider"] is  StaticBody spatial) 
+            else if (hit["collider"] is  Item spatial) 
             {
                 if (spatial.IsInGroup("Interactable")) // Interactable: Hover Cursor
                 {
